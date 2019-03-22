@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestReceipts {
 
 	/*
-	 * TODO
 	 * DONE - Classes Book, MusicCD, Chocolate, Receipt
 	 * DONE - Constructors
 	 * DONE - addTaxes method
@@ -23,11 +22,13 @@ public class TestReceipts {
 	 * DONE - change tax to percentage
 	 * DONE - change double to BigDecimal
 	 * DONE - remove duplications
-	 * - private variables
-	 * - provide getters and setters
-	 * - generic Item initialization not allowed
-	 * - Receipt multiple Item constructor
-	 * - Receipt dynamically calculate totals
+	 * DONE - private variables
+	 * DONE - provide getters and setters
+	 * DONE - generic Item initialization not allowed
+	 * DONE - Receipt multiple Item constructor
+	 * DONE - Receipt dynamically calculate totals
+	 * - Generalize taxable and not taxable items
+	 * - move addTax on another class that controls taxes
 	 */
 
 	@Test
@@ -42,11 +43,11 @@ public class TestReceipts {
 
 		Receipt receipt = new Receipt(book, musicCD, chocolate);
 
-		assertEquals(BigDecimal.valueOf(12.49), book.finalPrice);
-		assertEquals(BigDecimal.valueOf(16.49), musicCD.finalPrice);
-		assertEquals(BigDecimal.valueOf(0.85), chocolate.finalPrice);
+		assertEquals(BigDecimal.valueOf(12.49), book.getFinalPrice());
+		assertEquals(BigDecimal.valueOf(16.49), musicCD.getFinalPrice());
+		assertEquals(BigDecimal.valueOf(0.85), chocolate.getFinalPrice());
 
-		assertEquals(BigDecimal.valueOf(1.50).setScale(2), receipt.totalTaxesAmount);
-		assertEquals(BigDecimal.valueOf(29.83), receipt.totalAmount);
+		assertEquals(BigDecimal.valueOf(1.50).setScale(2), receipt.getTotalTaxesAmount());
+		assertEquals(BigDecimal.valueOf(29.83), receipt.getTotalAmount());
 	}
 }

@@ -2,14 +2,14 @@ package it.marco.lastminute.dto;
 
 import java.math.BigDecimal;
 
-public class Item {
+public abstract class Item {
 
 	/*
 	 * VARIABLES
 	 */
 
-	public BigDecimal amount;
-	public BigDecimal finalPrice;
+	protected BigDecimal amount;
+	protected BigDecimal finalPrice;
 
 	/*
 	 * CONSTRUCTORS
@@ -19,5 +19,29 @@ public class Item {
 
 		this.amount = amount;
 		this.finalPrice = amount;
+	}
+
+	/*
+	 * METHODS
+	 */
+
+	public BigDecimal getAmount() {
+
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+
+		this.amount = amount;
+	}
+
+	public BigDecimal getFinalPrice() {
+
+		return finalPrice;
+	}
+
+	public void setFinalPrice(BigDecimal finalPrice) {
+
+		this.finalPrice = finalPrice;
 	}
 }

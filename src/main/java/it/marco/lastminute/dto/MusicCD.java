@@ -20,9 +20,9 @@ public class MusicCD extends Item {
 
 	public void addTax(int taxes) {
 
-		BigDecimal bdTaxes = this.finalPrice.multiply(BigDecimal.valueOf(taxes)).divide(BigDecimal.valueOf(100));
+		BigDecimal bdTaxes = super.finalPrice.multiply(BigDecimal.valueOf(taxes)).divide(BigDecimal.valueOf(100));
 
-		this.finalPrice = this.finalPrice.add(bdTaxes);
-		this.finalPrice = this.finalPrice.setScale(2, RoundingMode.UP);
+		super.finalPrice = super.finalPrice.add(bdTaxes);
+		super.finalPrice = super.finalPrice.setScale(2, RoundingMode.UP);
 	}
 }
