@@ -1,6 +1,5 @@
 package it.marco.lastminute.dto;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.controller.TaxController;
 
