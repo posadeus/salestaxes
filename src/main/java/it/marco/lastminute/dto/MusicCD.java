@@ -3,14 +3,7 @@ package it.marco.lastminute.dto;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class MusicCD {
-
-	/*
-	 * VARIABLES
-	 */
-
-	public BigDecimal amount;
-	public BigDecimal finalPrice;
+public class MusicCD extends Item {
 
 	/*
 	 * CONSTRUCTORS
@@ -18,8 +11,7 @@ public class MusicCD {
 
 	public MusicCD(BigDecimal amount) {
 
-		this.amount = amount;
-		this.finalPrice = amount;
+		super(amount);
 	}
 
 	/*

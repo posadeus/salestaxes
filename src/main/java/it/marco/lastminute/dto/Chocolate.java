@@ -2,14 +2,7 @@ package it.marco.lastminute.dto;
 
 import java.math.BigDecimal;
 
-public class Chocolate {
-
-	/*
-	 * VARIABLES
-	 */
-
-	public BigDecimal amount;
-	public BigDecimal finalPrice;
+public class Chocolate extends Item {
 
 	/*
 	 * CONSTRUCTORS
@@ -17,7 +10,6 @@ public class Chocolate {
 
 	public Chocolate(BigDecimal amount) {
 
-		this.amount = amount;
-		this.finalPrice = amount;
+		super(amount);
 	}
 }

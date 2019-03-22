@@ -22,7 +22,12 @@ public class TestReceipts {
 	 * DONE - round double values to 2 decimals
 	 * DONE - change tax to percentage
 	 * DONE - change double to BigDecimal
-	 * - remove duplications
+	 * DONE - remove duplications
+	 * - private variables
+	 * - provide getters and setters
+	 * - generic Item initialization not allowed
+	 * - Receipt multiple Item constructor
+	 * - Receipt dynamically calculate totals
 	 */
 
 	@Test
