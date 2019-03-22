@@ -75,4 +75,29 @@ public class TestReceipts {
 		assertEquals(BigDecimal.valueOf(7.65), receipt.getTotalTaxesAmount());
 		assertEquals(BigDecimal.valueOf(65.15), receipt.getTotalAmount());
 	}
+
+	/*
+	 * TODO
+	 * - Classes HeadachePills
+	 */
+
+	@Test
+	@DisplayName("Test Third Receipt")
+	public void testThirdReceipt() {
+
+		Perfume importedPerfume = new Perfume(BigDecimal.valueOf(27.99), Boolean.TRUE);
+		Perfume perfume = new Perfume(BigDecimal.valueOf(18.99), Boolean.FALSE);
+		HeadachePills headachePills = new HeadachePills(BigDecimal.valueOf(9.75), Boolean.FALSE);
+		Chocolate importedChocolate = new Chocolate(BigDecimal.valueOf(11.25), Boolean.TRUE);
+
+		Receipt receipt = new Receipt(importedPerfume, perfume, headachePills, importedChocolate);
+
+		assertEquals(BigDecimal.valueOf(32.19), importedPerfume.getFinalPrice());
+		assertEquals(BigDecimal.valueOf(20.89), perfume.getFinalPrice());
+		assertEquals(BigDecimal.valueOf(9.75), headachePills.getFinalPrice());
+		assertEquals(BigDecimal.valueOf(11.85), importedChocolate.getFinalPrice());
+
+		assertEquals(BigDecimal.valueOf(6.70).setScale(2), receipt.getTotalTaxesAmount());
+		assertEquals(BigDecimal.valueOf(74.68), receipt.getTotalAmount());
+	}
 }
