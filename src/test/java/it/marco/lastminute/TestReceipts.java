@@ -37,7 +37,8 @@ public class TestReceipts {
 		MusicCD musicCD = new MusicCD(BigDecimal.valueOf(14.99), Boolean.FALSE);
 		Chocolate chocolate = new Chocolate(BigDecimal.valueOf(0.85), Boolean.FALSE);
 
-		TaxController.addTax(10, musicCD);
+		// FIXME remove this
+		//TaxController.addTax(10, musicCD);
 
 		Receipt receipt = new Receipt(book, musicCD, chocolate);
 
@@ -57,8 +58,10 @@ public class TestReceipts {
 	 * DONE - variables
 	 * DONE - remove duplications
 	 * DONE - add imported variable
-	 * - automatically tax TaxableItem
-	 * - automatically tax imported Item
+	 * DONE - automatically tax TaxableItem
+	 * DONE - automatically tax imported Item
+	 * - editable tax value
+	 * - editable import tax value
 	 */
 
 	@Test
@@ -68,9 +71,10 @@ public class TestReceipts {
 		Chocolate importedChocolate = new Chocolate(BigDecimal.valueOf(10.00).setScale(2), Boolean.TRUE);
 		Perfume importedPerfume = new Perfume(BigDecimal.valueOf(47.50).setScale(2), Boolean.TRUE);
 
-		TaxController.addImportTax(5, importedChocolate);
-		TaxController.addTax(10, importedPerfume);
-		TaxController.addImportTax(5, importedPerfume);
+		// FIXME remove these
+		//TaxController.addImportTax(5, importedChocolate);
+		//TaxController.addTax(10, importedPerfume);
+		//TaxController.addImportTax(5, importedPerfume);
 
 		Receipt receipt = new Receipt(importedChocolate, importedPerfume);
 

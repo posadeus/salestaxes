@@ -1,5 +1,7 @@
 package it.marco.lastminute.dto;
 
+import it.marco.lastminute.controller.TaxController;
+
 import java.math.BigDecimal;
 
 public abstract class TaxableItem extends Item {
@@ -17,5 +19,6 @@ public abstract class TaxableItem extends Item {
 	public TaxableItem(BigDecimal amount, Boolean isImported) {
 
 		super(amount, isTaxable, isImported);
+		TaxController.addTax(10, this);
 	}
 }
