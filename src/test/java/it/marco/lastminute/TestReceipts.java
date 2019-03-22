@@ -1,16 +1,23 @@
 package it.marco.lastminute;
 
+import it.marco.lastminute.dto.Book;
+import it.marco.lastminute.dto.Chocolate;
+import it.marco.lastminute.dto.MusicCD;
+import it.marco.lastminute.dto.Receipt;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestReceipts {
 
 	/*
 	 * TODO
-	 * - Classes Book, MusicCD, Chocolate, Receipt
-	 * - Constructors
-	 * - addTaxes method
-	 * - variables
+	 * DONE - Classes Book, MusicCD, Chocolate, Receipt
+	 * DONE - Constructors
+	 * DONE - addTaxes method
+	 * DONE - variables
+	 * - round double values to 2 decimals
 	 */
 
 	@Test
@@ -29,7 +36,7 @@ public class TestReceipts {
 		assertEquals(16.49, musicCD.finalPrice);
 		assertEquals(0.85, chocolate.finalPrice);
 
-		assertEquals(1.50, receipt.totalTaxeAmount);
+		assertEquals(1.50, receipt.totalTaxesAmount);
 		assertEquals(29.83, receipt.totalAmount);
 	}
 }
