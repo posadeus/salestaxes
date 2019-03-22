@@ -1,10 +1,7 @@
 package it.marco.lastminute;
 
 import it.marco.lastminute.controller.TaxController;
-import it.marco.lastminute.dto.Book;
-import it.marco.lastminute.dto.Chocolate;
-import it.marco.lastminute.dto.MusicCD;
-import it.marco.lastminute.dto.Receipt;
+import it.marco.lastminute.dto.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -54,10 +51,14 @@ public class TestReceipts {
 
 	/*
 	 * TODO
-	 * - Classes ImportedChocolate, ImportedPerfume
-	 * - Constructors
-	 * - addImportTax method
-	 * - variables
+	 * DONE - Classes ImportedChocolate, ImportedPerfume
+	 * DONE - Constructors
+	 * DONE - addImportTax method
+	 * DONE - variables
+	 * - remove duplications
+	 * - add imported variable
+	 * - automatically tax TaxableItem
+	 * - automatically tax imported Item
 	 */
 
 	@Test
@@ -68,12 +69,13 @@ public class TestReceipts {
 		ImportedPerfume importedPerfume = new ImportedPerfume(BigDecimal.valueOf(47.50).setScale(2));
 
 		TaxController.addImportTax(5, importedChocolate);
+		TaxController.addTax(10, importedPerfume);
 		TaxController.addImportTax(5, importedPerfume);
 
 		Receipt receipt = new Receipt(importedChocolate, importedPerfume);
 
-		assertEquals(BigDecimal.valueOf(10.50).setScale(2), importedChocolate.finalPrice);
-		assertEquals(BigDecimal.valueOf(54.65), importedPerfume.finalPrice);
+		assertEquals(BigDecimal.valueOf(10.50).setScale(2), importedChocolate.getFinalPrice());
+		assertEquals(BigDecimal.valueOf(54.65), importedPerfume.getFinalPrice());
 
 		assertEquals(BigDecimal.valueOf(7.65), receipt.getTotalTaxesAmount());
 		assertEquals(BigDecimal.valueOf(65.15), receipt.getTotalAmount());
