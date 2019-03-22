@@ -1,0 +1,9 @@
+
+language: java
+script: mvn clean verify
+notifications:
+   email:
+      recipients:
+        - marco.berti90@gmail.com
+      on_success: never
+      on_failure: always
