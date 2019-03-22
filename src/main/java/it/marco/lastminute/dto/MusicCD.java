@@ -1,5 +1,8 @@
 package it.marco.lastminute.dto;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class MusicCD {
 
 	/*
@@ -23,8 +26,14 @@ public class MusicCD {
 	 * METHODS
 	 */
 
-	public void addTaxes(double taxes) {
+	public void addTax(int taxes) {
 
-		finalPrice += taxes;
+		BigDecimal bdTaxes = new BigDecimal(this.finalPrice * taxes / 100);
+		BigDecimal bdFinalPrice = new BigDecimal(this.finalPrice);
+
+		bdFinalPrice = bdFinalPrice.add(bdTaxes);
+		bdFinalPrice = bdFinalPrice.setScale(2, RoundingMode.UP);
+
+		this.finalPrice = bdFinalPrice.doubleValue();
 	}
 }

@@ -17,7 +17,10 @@ public class TestReceipts {
 	 * DONE - Constructors
 	 * DONE - addTaxes method
 	 * DONE - variables
-	 * - round double values to 2 decimals
+	 * DONE - round double values to 2 decimals
+	 * DONE - change tax to percentage
+	 * - change double to BigDecimal
+	 * - remove duplications
 	 */
 
 	@Test
@@ -28,7 +31,7 @@ public class TestReceipts {
 		MusicCD musicCD = new MusicCD(14.99);
 		Chocolate chocolate = new Chocolate(0.85);
 
-		musicCD.addTaxes(1.50);
+		musicCD.addTax(10);
 
 		Receipt receipt = new Receipt(book, musicCD, chocolate);
 
