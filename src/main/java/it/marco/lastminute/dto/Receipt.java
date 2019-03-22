@@ -1,7 +1,6 @@
 package it.marco.lastminute.dto;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class Receipt {
 
@@ -9,8 +8,8 @@ public class Receipt {
 	 * VARIABLES
 	 */
 
-	public double totalAmount;
-	public double totalTaxesAmount;
+	public BigDecimal totalAmount;
+	public BigDecimal totalTaxesAmount;
 
 	/*
 	 * CONSTRUCTORS
@@ -18,11 +17,7 @@ public class Receipt {
 
 	public Receipt(Book book, MusicCD musicCD, Chocolate chocolate) {
 
-		this.totalAmount = book.finalPrice + musicCD.finalPrice + chocolate.finalPrice;
-		this.totalTaxesAmount = this.totalAmount - book.amount - musicCD.amount - chocolate.amount;
-
-		BigDecimal bd = new BigDecimal(this.totalTaxesAmount);
-		bd = bd.setScale(2, RoundingMode.UP);
-		this.totalTaxesAmount = bd.doubleValue();
+		this.totalAmount = book.finalPrice.add(musicCD.finalPrice).add(chocolate.finalPrice);
+		this.totalTaxesAmount = this.totalAmount.subtract(book.amount).subtract(musicCD.amount).subtract(chocolate.amount);
 	}
 }

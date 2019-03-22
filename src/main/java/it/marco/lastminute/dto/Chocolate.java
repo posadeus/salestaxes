@@ -1,19 +1,21 @@
 package it.marco.lastminute.dto;
 
+import java.math.BigDecimal;
+
 public class Chocolate {
 
 	/*
 	 * VARIABLES
 	 */
 
-	public double amount;
-	public double finalPrice;
+	public BigDecimal amount;
+	public BigDecimal finalPrice;
 
 	/*
 	 * CONSTRUCTORS
 	 */
 
-	public Chocolate(double amount) {
+	public Chocolate(BigDecimal amount) {
 
 		this.amount = amount;
 		this.finalPrice = amount;

@@ -9,14 +9,14 @@ public class MusicCD {
 	 * VARIABLES
 	 */
 
-	public double amount;
-	public double finalPrice;
+	public BigDecimal amount;
+	public BigDecimal finalPrice;
 
 	/*
 	 * CONSTRUCTORS
 	 */
 
-	public MusicCD(double amount) {
+	public MusicCD(BigDecimal amount) {
 
 		this.amount = amount;
 		this.finalPrice = amount;
@@ -28,12 +28,9 @@ public class MusicCD {
 
 	public void addTax(int taxes) {
 
-		BigDecimal bdTaxes = new BigDecimal(this.finalPrice * taxes / 100);
-		BigDecimal bdFinalPrice = new BigDecimal(this.finalPrice);
+		BigDecimal bdTaxes = this.finalPrice.multiply(BigDecimal.valueOf(taxes)).divide(BigDecimal.valueOf(100));
 
-		bdFinalPrice = bdFinalPrice.add(bdTaxes);
-		bdFinalPrice = bdFinalPrice.setScale(2, RoundingMode.UP);
-
-		this.finalPrice = bdFinalPrice.doubleValue();
+		this.finalPrice = this.finalPrice.add(bdTaxes);
+		this.finalPrice = this.finalPrice.setScale(2, RoundingMode.UP);
 	}
 }
