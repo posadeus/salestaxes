@@ -11,16 +11,18 @@ public abstract class Item {
 	protected BigDecimal amount;
 	protected BigDecimal finalPrice;
 	protected Boolean isTaxable;
+	protected Boolean isImported;
 
 	/*
 	 * CONSTRUCTORS
 	 */
 
-	public Item(BigDecimal amount, Boolean isTaxable) {
+	public Item(BigDecimal amount, Boolean isTaxable, Boolean isImported) {
 
 		this.amount = amount;
 		this.finalPrice = amount;
 		this.isTaxable = isTaxable;
+		this.isImported = isImported;
 	}
 
 	/*

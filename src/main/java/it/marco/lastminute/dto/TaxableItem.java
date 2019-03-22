@@ -14,8 +14,8 @@ public abstract class TaxableItem extends Item {
 	 * CONSTRUCTORS
 	 */
 
-	public TaxableItem(BigDecimal amount) {
+	public TaxableItem(BigDecimal amount, Boolean isImported) {
 
-		super(amount, isTaxable);
+		super(amount, isTaxable, isImported);
 	}
 }

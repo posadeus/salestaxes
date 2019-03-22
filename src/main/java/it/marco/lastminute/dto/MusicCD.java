@@ -8,8 +8,8 @@ public class MusicCD extends TaxableItem {
 	 * CONSTRUCTORS
 	 */
 
-	public MusicCD(BigDecimal amount) {
+	public MusicCD(BigDecimal amount, Boolean isImported) {
 
-		super(amount);
+		super(amount, isImported);
 	}
 }

@@ -33,9 +33,9 @@ public class TestReceipts {
 	@DisplayName("Test First Receipt")
 	public void testFirstReceipt() {
 
-		Book book = new Book(BigDecimal.valueOf(12.49));
-		MusicCD musicCD = new MusicCD(BigDecimal.valueOf(14.99));
-		Chocolate chocolate = new Chocolate(BigDecimal.valueOf(0.85));
+		Book book = new Book(BigDecimal.valueOf(12.49), Boolean.FALSE);
+		MusicCD musicCD = new MusicCD(BigDecimal.valueOf(14.99), Boolean.FALSE);
+		Chocolate chocolate = new Chocolate(BigDecimal.valueOf(0.85), Boolean.FALSE);
 
 		TaxController.addTax(10, musicCD);
 
@@ -51,12 +51,12 @@ public class TestReceipts {
 
 	/*
 	 * TODO
-	 * DONE - Classes ImportedChocolate, ImportedPerfume
+	 * DONE - Classes Chocolate, Perfume
 	 * DONE - Constructors
 	 * DONE - addImportTax method
 	 * DONE - variables
-	 * - remove duplications
-	 * - add imported variable
+	 * DONE - remove duplications
+	 * DONE - add imported variable
 	 * - automatically tax TaxableItem
 	 * - automatically tax imported Item
 	 */
@@ -65,8 +65,8 @@ public class TestReceipts {
 	@DisplayName("Test Second Receipt")
 	public void testSecondReceipt() {
 
-		ImportedChocolate importedChocolate = new ImportedChocolate(BigDecimal.valueOf(10.00).setScale(2));
-		ImportedPerfume importedPerfume = new ImportedPerfume(BigDecimal.valueOf(47.50).setScale(2));
+		Chocolate importedChocolate = new Chocolate(BigDecimal.valueOf(10.00).setScale(2), Boolean.TRUE);
+		Perfume importedPerfume = new Perfume(BigDecimal.valueOf(47.50).setScale(2), Boolean.TRUE);
 
 		TaxController.addImportTax(5, importedChocolate);
 		TaxController.addTax(10, importedPerfume);

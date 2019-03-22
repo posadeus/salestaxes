@@ -2,13 +2,13 @@ package it.marco.lastminute.dto;
 
 import java.math.BigDecimal;
 
-public class Chocolate extends ExemptedItem {
+public class Perfume extends TaxableItem {
 
 	/*
 	 * CONSTRUCTORS
 	 */
 
-	public Chocolate(BigDecimal amount, Boolean isImported) {
+	public Perfume(BigDecimal amount, Boolean isImported) {
 
 		super(amount, isImported);
 	}

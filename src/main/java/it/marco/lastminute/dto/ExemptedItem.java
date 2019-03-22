@@ -14,8 +14,8 @@ public abstract class ExemptedItem extends Item {
 	 * CONSTRUCTORS
 	 */
 
-	public ExemptedItem(BigDecimal amount) {
+	public ExemptedItem(BigDecimal amount, Boolean isImported) {
 
-		super(amount, isTaxable);
+		super(amount, isTaxable, isImported);
 	}
 }

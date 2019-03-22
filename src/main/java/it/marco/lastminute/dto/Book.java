@@ -8,8 +8,8 @@ public class Book extends ExemptedItem {
 	 * CONSTRUCTORS
 	 */
 
-	public Book(BigDecimal amount) {
+	public Book(BigDecimal amount, Boolean isImported) {
 
-		super(amount);
+		super(amount, isImported);
 	}
 }
