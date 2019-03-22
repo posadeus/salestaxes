@@ -27,7 +27,7 @@ public class TestReceipts {
 	 * DONE - generic Item initialization not allowed
 	 * DONE - Receipt multiple Item constructor
 	 * DONE - Receipt dynamically calculate totals
-	 * - Generalize taxable and not taxable items
+	 * DONE - generalize taxable and not taxable items
 	 * - move addTax on another class that controls taxes
 	 */
 

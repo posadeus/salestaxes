@@ -2,7 +2,7 @@ package it.marco.lastminute.dto;
 
 import java.math.BigDecimal;
 
-public class Chocolate extends Item {
+public class Chocolate extends ExemptedItem {
 
 	/*
 	 * CONSTRUCTORS

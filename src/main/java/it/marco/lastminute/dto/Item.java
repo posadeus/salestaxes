@@ -10,15 +10,17 @@ public abstract class Item {
 
 	protected BigDecimal amount;
 	protected BigDecimal finalPrice;
+	protected Boolean isTaxable;
 
 	/*
 	 * CONSTRUCTORS
 	 */
 
-	public Item(BigDecimal amount) {
+	public Item(BigDecimal amount, Boolean isTaxable) {
 
 		this.amount = amount;
 		this.finalPrice = amount;
+		this.isTaxable = isTaxable;
 	}
 
 	/*
@@ -43,5 +45,10 @@ public abstract class Item {
 	public void setFinalPrice(BigDecimal finalPrice) {
 
 		this.finalPrice = finalPrice;
+	}
+
+	public Boolean getTaxable() {
+
+		return isTaxable;
 	}
 }

@@ -3,7 +3,7 @@ package it.marco.lastminute.dto;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class MusicCD extends Item {
+public class MusicCD extends TaxableItem {
 
 	/*
 	 * CONSTRUCTORS
