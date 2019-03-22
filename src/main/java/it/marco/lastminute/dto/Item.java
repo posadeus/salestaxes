@@ -1,5 +1,7 @@
 package it.marco.lastminute.dto;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.controller.TaxController;
 
 import java.math.BigDecimal;
@@ -28,7 +30,7 @@ public abstract class Item {
 
 		if (this.isImported) {
 
-			TaxController.addImportTax(5, this);
+			TaxController.addImportTax(Constants.TAX_FOR_IMPORTED_ITEM, this);
 		}
 	}
 

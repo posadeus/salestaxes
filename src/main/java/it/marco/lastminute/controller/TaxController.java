@@ -1,5 +1,6 @@
 package it.marco.lastminute.controller;
 
+import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.dto.Item;
 import it.marco.lastminute.dto.TaxableItem;
 
@@ -28,10 +29,10 @@ public class TaxController {
 			item.setFinalPrice(item.getFinalPrice().add(bdTaxes));
 			item.setFinalPrice(item.getFinalPrice()
 					.setScale(2, RoundingMode.UP)
-					.multiply(new BigDecimal(20))				// 20 = 1 / 0.05
-					.add(new BigDecimal("0.5"))					// margin to elevate number value
+					.multiply(new BigDecimal(Constants.ROUNDING_VALUE))	// 20 = 1 / 0.05
+					.add(new BigDecimal(Constants.MARGIN_FOR_ROUNDING))	// margin to elevate number value
 					.setScale(0, RoundingMode.FLOOR)
-					.divide(new BigDecimal(20))
+					.divide(new BigDecimal(Constants.ROUNDING_VALUE))
 					.setScale(2, RoundingMode.FLOOR));
 		}
 	}

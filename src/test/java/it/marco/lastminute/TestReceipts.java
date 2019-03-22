@@ -1,6 +1,5 @@
 package it.marco.lastminute;
 
-import it.marco.lastminute.controller.TaxController;
 import it.marco.lastminute.dto.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,9 +36,6 @@ public class TestReceipts {
 		MusicCD musicCD = new MusicCD(BigDecimal.valueOf(14.99), Boolean.FALSE);
 		Chocolate chocolate = new Chocolate(BigDecimal.valueOf(0.85), Boolean.FALSE);
 
-		// FIXME remove this
-		//TaxController.addTax(10, musicCD);
-
 		Receipt receipt = new Receipt(book, musicCD, chocolate);
 
 		assertEquals(BigDecimal.valueOf(12.49), book.getFinalPrice());
@@ -60,8 +56,8 @@ public class TestReceipts {
 	 * DONE - add imported variable
 	 * DONE - automatically tax TaxableItem
 	 * DONE - automatically tax imported Item
-	 * - editable tax value
-	 * - editable import tax value
+	 * DONE - editable tax value (into code)
+	 * DONE - editable import tax value (into code)
 	 */
 
 	@Test
@@ -70,11 +66,6 @@ public class TestReceipts {
 
 		Chocolate importedChocolate = new Chocolate(BigDecimal.valueOf(10.00).setScale(2), Boolean.TRUE);
 		Perfume importedPerfume = new Perfume(BigDecimal.valueOf(47.50).setScale(2), Boolean.TRUE);
-
-		// FIXME remove these
-		//TaxController.addImportTax(5, importedChocolate);
-		//TaxController.addTax(10, importedPerfume);
-		//TaxController.addImportTax(5, importedPerfume);
 
 		Receipt receipt = new Receipt(importedChocolate, importedPerfume);
 
