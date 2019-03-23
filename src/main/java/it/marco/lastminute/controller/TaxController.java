@@ -5,11 +5,8 @@ import it.marco.lastminute.dto.TaxableItem;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 public class TaxController {
-
-	private static DecimalFormat df2 = new DecimalFormat(",##");
 
 	public static void addTax(int taxes, TaxableItem taxableItem) {
 

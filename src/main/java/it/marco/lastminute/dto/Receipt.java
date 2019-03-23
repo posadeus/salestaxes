@@ -10,6 +10,7 @@ public class Receipt {
 	 * VARIABLES
 	 */
 
+	private List<Item> itemList;
 	private BigDecimal totalAmount;
 	private BigDecimal totalTaxesAmount;
 
@@ -19,13 +20,13 @@ public class Receipt {
 
 	public Receipt(Item... items) {
 
-		List<Item> itemList = Arrays.asList(items);
+		this.itemList = Arrays.asList(items);
 
-		this.totalAmount = itemList.stream()					// Convert list to stream
+		this.totalAmount = this.itemList.stream()				// Convert list to stream
 			.map(Item::getFinalPrice)							// Convert stream to BigDecimal
 			.reduce(BigDecimal.ZERO, BigDecimal::add);			// Sum values from 0
 
-		this.totalTaxesAmount = itemList.stream()				// Convert list to stream
+		this.totalTaxesAmount = this.itemList.stream()			// Convert list to stream
 			.map(Item::getAmount)								// Convert stream to BigDecimal
 			.reduce(this.totalAmount, BigDecimal::subtract);	// Subtract values from totalAmount
 	}
@@ -33,6 +34,16 @@ public class Receipt {
 	/*
 	 * METHODS
 	 */
+
+	public List<Item> getItemList() {
+
+		return itemList;
+	}
+
+	public void setItemList(List<Item> itemList) {
+
+		this.itemList = itemList;
+	}
 
 	public BigDecimal getTotalAmount() {
 
@@ -52,5 +63,31 @@ public class Receipt {
 	public void setTotalTaxesAmount(BigDecimal totalTaxesAmount) {
 
 		this.totalTaxesAmount = totalTaxesAmount;
+	}
+
+	/**
+	 * This method print all the Items in Receipt with their name and their final price (with taxex).
+	 * It also prints the total amount of the Items and the total amount of Taxes.
+	 *
+	 * @return		the printed Receipt
+	 */
+	public String print() {
+
+		String str = "";
+
+		for (Item item : itemList) {
+
+			str += item.getClass().getSimpleName();
+			str += " --> ";
+			str += item.getFinalPrice();
+			str += "\n";
+		}
+
+		str += "\n";
+		str += "Total Amount --> " + this.getTotalAmount();
+		str += "\n";
+		str += "Total Amount of Taxes --> " + this.getTotalTaxesAmount();
+
+		return str;
 	}
 }
