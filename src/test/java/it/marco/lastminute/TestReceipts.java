@@ -79,7 +79,7 @@ public class TestReceipts {
 	/*
 	 * TODO
 	 * DONE - Classes HeadachePills
-	 * - fix rounding
+	 * DONE - fix rounding
 	 */
 
 	@Test

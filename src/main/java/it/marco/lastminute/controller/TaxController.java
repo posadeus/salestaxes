@@ -1,13 +1,15 @@
 package it.marco.lastminute.controller;
 
-import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.dto.Item;
 import it.marco.lastminute.dto.TaxableItem;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class TaxController {
+
+	private static DecimalFormat df2 = new DecimalFormat(",##");
 
 	public static void addTax(int taxes, TaxableItem taxableItem) {
 
@@ -15,8 +17,10 @@ public class TaxController {
 
 			BigDecimal bdTaxes = taxableItem.getAmount().multiply(BigDecimal.valueOf(taxes)).divide(BigDecimal.valueOf(100));
 
+			bdTaxes = roundingTax(bdTaxes);
+
 			taxableItem.setFinalPrice(taxableItem.getFinalPrice().add(bdTaxes));
-			taxableItem.setFinalPrice(taxableItem.getFinalPrice().setScale(2, RoundingMode.UP));
+			//taxableItem.setFinalPrice(taxableItem.getFinalPrice().setScale(2, RoundingMode.UP));
 		}
 	}
 
@@ -26,14 +30,26 @@ public class TaxController {
 
 			BigDecimal bdTaxes = item.getAmount().multiply(BigDecimal.valueOf(taxes)).divide(BigDecimal.valueOf(100));
 
+			bdTaxes = roundingTax(bdTaxes);
+
 			item.setFinalPrice(item.getFinalPrice().add(bdTaxes));
-			item.setFinalPrice(item.getFinalPrice()
-					.setScale(2, RoundingMode.UP)
-					.multiply(new BigDecimal(Constants.ROUNDING_VALUE))	// 20 = 1 / 0.05
-					.add(new BigDecimal(Constants.MARGIN_FOR_ROUNDING))	// margin to elevate number value
-					.setScale(0, RoundingMode.FLOOR)
-					.divide(new BigDecimal(Constants.ROUNDING_VALUE))
-					.setScale(2, RoundingMode.FLOOR));
 		}
+	}
+
+	private static BigDecimal roundingTax(BigDecimal tax) {
+
+		if (tax != null && ! BigDecimal.ZERO.equals(tax)) {
+
+			double taxDouble = tax.doubleValue();
+
+			if (taxDouble % 5 != 0) {
+
+				taxDouble = 0.05d * Math.ceil(taxDouble / 0.05d);
+
+				tax = BigDecimal.valueOf(taxDouble).setScale(2, RoundingMode.DOWN);
+			}
+		}
+
+		return tax;
 	}
 }
