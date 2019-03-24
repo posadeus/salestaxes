@@ -6,8 +6,9 @@ public class Tax {
 	 * VARIABLES
 	 */
 
-	private int baseTax;
-	private int importTax;
+	private String item;
+	private Integer baseTax;
+	private Integer importTax;
 
 	/*
 	 * CONSTRUCTORS
@@ -19,22 +20,32 @@ public class Tax {
 	 * METHODS
 	 */
 
-	public int getBaseTax() {
+	public String getItem() {
+
+		return item;
+	}
+
+	public void setItem(String item) {
+
+		this.item = item;
+	}
+
+	public Integer getBaseTax() {
 
 		return baseTax;
 	}
 
-	public void setBaseTax(int baseTax) {
+	public void setBaseTax(Integer baseTax) {
 
 		this.baseTax = baseTax;
 	}
 
-	public int getImportTax() {
+	public Integer getImportTax() {
 
 		return importTax;
 	}
 
-	public void setImportTax(int importTax) {
+	public void setImportTax(Integer importTax) {
 
 		this.importTax = importTax;
 	}

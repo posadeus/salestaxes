@@ -1,6 +1,7 @@
 package it.marco.lastminute.loader;
 
 import it.marco.lastminute.dto.Tax;
+import it.marco.lastminute.utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,8 +47,9 @@ public class CSVDataLoader {
 
 					// Parse row
 					Tax tax = new Tax();
-					tax.setBaseTax(Integer.valueOf(values[0]));
-					tax.setImportTax(Integer.valueOf(values[1]));
+					tax.setItem(Utils.toLowerCase(Utils.removeAllSpaces(values[0])));
+					tax.setBaseTax(Integer.valueOf(values[1]));
+					tax.setImportTax(Integer.valueOf(values[2]));
 
 					results.add(tax);
 				}

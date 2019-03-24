@@ -1,2 +1,6 @@
-BASE TAX,IMPORT TAX
-10,5
+ITEM,BASE TAX,IMPORT TAX
+Book,NULL,5
+Chocolate,NULL,5
+Headache Pills,NULL,5
+Music CD,10,5
+Perfume,10,5

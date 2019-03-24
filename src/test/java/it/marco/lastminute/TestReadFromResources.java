@@ -22,6 +22,8 @@ public class TestReadFromResources {
 	 * DONE - private variables
 	 * DONE - getters & setters
 	 * - read Tax in TaxController
+	 * DONE - set possible tax foreach item into resource
+	 * DONE - change int to Integer to manage NULL values in Tax
 	 */
 
 	@Test
@@ -36,7 +38,7 @@ public class TestReadFromResources {
 
 		Tax tax = taxList.get(0);
 
-		assertEquals(10, tax.getBaseTax());
-		assertEquals(5, tax.getImportTax());
+		assertEquals(Integer.valueOf(10), tax.getBaseTax());
+		assertEquals(Integer.valueOf(5), tax.getImportTax());
 	}
 }
