@@ -48,18 +48,30 @@ public class CSVDataLoader {
 					// Parse row
 					Tax tax = new Tax();
 					tax.setItem(Utils.toLowerCase(Utils.removeAllSpaces(values[0])));
-					tax.setBaseTax(Integer.valueOf(values[1]));
-					tax.setImportTax(Integer.valueOf(values[2]));
+
+					try {
+
+						tax.setBaseTax(Integer.valueOf(values[1]));
+					}
+					catch (NumberFormatException e) {
+
+						tax.setBaseTax(null);
+					}
+
+					try {
+
+						tax.setImportTax(Integer.valueOf(values[2]));
+					}
+					catch (NumberFormatException e) {
+
+						tax.setImportTax(null);
+					}
 
 					results.add(tax);
 				}
 			}
 		}
 		catch (IOException e) {
-
-			e.printStackTrace();
-		}
-		catch (NumberFormatException e) {
 
 			e.printStackTrace();
 		}

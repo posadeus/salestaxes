@@ -1,33 +1,45 @@
 package it.marco.lastminute.controller;
 
 import it.marco.lastminute.dto.Item;
+import it.marco.lastminute.dto.Tax;
 import it.marco.lastminute.dto.TaxableItem;
+import it.marco.lastminute.loader.CSVDataLoader;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.List;
 
 public class TaxController {
 
 	/**
 	 * This method add a Tax to the TaxableItem's final price
 	 *
-	 * @param taxes			tax to add
 	 * @param taxableItem	TaxableItem to correct with tax
 	 */
-	public static void addTax(int taxes, TaxableItem taxableItem) {
+	public static void addTax(TaxableItem taxableItem) {
 
-		addTaxToItem(taxes, taxableItem);
+		Tax tax = getTaxType(getTaxFromResources(), taxableItem);
+
+		if (tax != null) {
+
+			addTaxToItem(tax.getBaseTax(), taxableItem);
+		}
+
 	}
 
 	/**
 	 * This method add a Tax to the Item's final price
 	 *
-	 * @param taxes			tax to add
 	 * @param item			TaxableItem to correct with tax
 	 */
-	public static void addImportTax(int taxes, Item item) {
+	public static void addImportTax(Item item) {
 
-		addTaxToItem(taxes, item);
+		Tax tax = getTaxType(getTaxFromResources(), item);
+
+		if (tax != null) {
+
+			addTaxToItem(tax.getImportTax(), item);
+		}
 	}
 
 	/**
@@ -70,5 +82,37 @@ public class TaxController {
 
 			item.setFinalPrice(item.getFinalPrice().add(bdTaxes));
 		}
+	}
+
+
+	private static List<Tax> getTaxFromResources() {
+
+		CSVDataLoader loader = new CSVDataLoader();
+
+		return loader.loadTaxes();
+	}
+
+
+	private static Tax getTaxType(List<Tax> taxList, Item item) {
+
+		Tax tax = null;
+
+		if (item != null && taxList != null && ! taxList.isEmpty()) {
+
+			String itemName = item.getClass().getSimpleName().toLowerCase();
+
+			try {
+
+				tax = taxList.stream()
+						.filter(x -> itemName.equals(x.getItem()))
+						.findFirst().get();
+			}
+			catch(NullPointerException e) {
+
+				tax = null;
+			}
+		}
+
+		return tax;
 	}
 }

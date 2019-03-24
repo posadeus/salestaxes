@@ -29,7 +29,7 @@ public abstract class Item {
 
 		if (this.isImported) {
 
-			TaxController.addImportTax(Constants.TAX_FOR_IMPORTED_ITEM, this);
+			TaxController.addImportTax(this);
 		}
 	}
 

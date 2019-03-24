@@ -21,9 +21,10 @@ public class TestReadFromResources {
 	 * DONE - read from resource
 	 * DONE - private variables
 	 * DONE - getters & setters
-	 * - read Tax in TaxController
+	 * DONE - read Tax in TaxController
 	 * DONE - set possible tax foreach item into resource
 	 * DONE - change int to Integer to manage NULL values in Tax
+	 * - generalize loader in TaxController
 	 */
 
 	@Test
@@ -34,10 +35,35 @@ public class TestReadFromResources {
 
 		List<Tax> taxList = loader.loadTaxes();
 
-		assertEquals(1, taxList.size());
+		assertEquals(5, taxList.size());
 
 		Tax tax = taxList.get(0);
 
+		assertEquals("book", tax.getItem());
+		assertEquals(null, tax.getBaseTax());
+		assertEquals(Integer.valueOf(5), tax.getImportTax());
+
+		tax = taxList.get(1);
+
+		assertEquals("chocolate", tax.getItem());
+		assertEquals(null, tax.getBaseTax());
+		assertEquals(Integer.valueOf(5), tax.getImportTax());
+
+		tax = taxList.get(2);
+
+		assertEquals("headachepills", tax.getItem());
+		assertEquals(null, tax.getBaseTax());
+		assertEquals(Integer.valueOf(5), tax.getImportTax());
+
+		tax = taxList.get(3);
+
+		assertEquals("musiccd", tax.getItem());
+		assertEquals(Integer.valueOf(10), tax.getBaseTax());
+		assertEquals(Integer.valueOf(5), tax.getImportTax());
+
+		tax = taxList.get(4);
+
+		assertEquals("perfume", tax.getItem());
 		assertEquals(Integer.valueOf(10), tax.getBaseTax());
 		assertEquals(Integer.valueOf(5), tax.getImportTax());
 	}

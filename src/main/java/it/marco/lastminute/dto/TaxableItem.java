@@ -20,6 +20,6 @@ public abstract class TaxableItem extends Item {
 	public TaxableItem(BigDecimal amount, Boolean isImported) {
 
 		super(amount, isTaxable, isImported);
-		TaxController.addTax(Constants.TAX_FOR_TAXABLE_ITEM, this);
+		TaxController.addTax(this);
 	}
 }

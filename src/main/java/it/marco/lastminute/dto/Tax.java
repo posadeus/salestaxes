@@ -49,4 +49,14 @@ public class Tax {
 
 		this.importTax = importTax;
 	}
+
+	@Override
+	public String toString() {
+
+		return "Tax{" +
+				"item='" + item + '\'' +
+				", baseTax=" + baseTax +
+				", importTax=" + importTax +
+				'}';
+	}
 }
