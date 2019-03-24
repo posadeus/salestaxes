@@ -19,8 +19,9 @@ public class TestReadFromResources {
 	 * DONE - variables
 	 * DONE - add resource to read
 	 * DONE - read from resource
-	 * - private variables
-	 * - getters & setters
+	 * DONE - private variables
+	 * DONE - getters & setters
+	 * - read Tax in TaxController
 	 */
 
 	@Test
@@ -35,7 +36,7 @@ public class TestReadFromResources {
 
 		Tax tax = taxList.get(0);
 
-		assertEquals(10, tax.baseTax);
-		assertEquals(5, tax.importTax);
+		assertEquals(10, tax.getBaseTax());
+		assertEquals(5, tax.getImportTax());
 	}
 }

@@ -46,8 +46,8 @@ public class CSVDataLoader {
 
 					// Parse row
 					Tax tax = new Tax();
-					tax.baseTax = Integer.valueOf(values[0]);
-					tax.importTax = Integer.valueOf(values[1]);
+					tax.setBaseTax(Integer.valueOf(values[0]));
+					tax.setImportTax(Integer.valueOf(values[1]));
 
 					results.add(tax);
 				}
