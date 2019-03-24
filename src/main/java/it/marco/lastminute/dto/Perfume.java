@@ -12,4 +12,19 @@ public class Perfume extends TaxableItem {
 
 		super(amount, isImported);
 	}
+
+	/*
+	 * METHODS
+	 */
+
+	@Override
+	public String toString() {
+
+		return "Book{" +
+				"amount=" + amount +
+				", finalPrice=" + finalPrice +
+				", isTaxable=" + isTaxable +
+				", isImported=" + isImported +
+				'}';
+	}
 }
