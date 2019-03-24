@@ -17,7 +17,10 @@ public class TestReadFromResources {
 	 * DONE - constructors
 	 * DONE - methods
 	 * DONE - variables
-	 * - add resource to read
+	 * DONE - add resource to read
+	 * DONE - read from resource
+	 * - private variables
+	 * - getters & setters
 	 */
 
 	@Test

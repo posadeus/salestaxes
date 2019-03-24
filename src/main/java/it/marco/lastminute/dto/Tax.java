@@ -13,9 +13,5 @@ public class Tax {
 	 * CONSTRUCTORS
 	 */
 
-	public Tax(int baseTax, int importTax) {
-
-		this.baseTax = baseTax;
-		this.importTax = importTax;
-	}
+	public Tax() {}
 }
