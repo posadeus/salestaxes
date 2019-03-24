@@ -1,7 +1,7 @@
 package it.marco.lastminute.dto;
 
-import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.controller.TaxController;
+import it.marco.lastminute.factory.DataLoaderFactory;
 
 import java.math.BigDecimal;
 
@@ -29,7 +29,8 @@ public abstract class Item {
 
 		if (this.isImported) {
 
-			TaxController.addImportTax(this);
+			TaxController taxController = DataLoaderFactory.setCSVDataLoader();
+			taxController.addImportTax(this);
 		}
 	}
 

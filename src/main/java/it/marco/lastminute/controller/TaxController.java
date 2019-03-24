@@ -3,7 +3,7 @@ package it.marco.lastminute.controller;
 import it.marco.lastminute.dto.Item;
 import it.marco.lastminute.dto.Tax;
 import it.marco.lastminute.dto.TaxableItem;
-import it.marco.lastminute.loader.CSVDataLoader;
+import it.marco.lastminute.loader.DataLoaderInterface;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -11,12 +11,38 @@ import java.util.List;
 
 public class TaxController {
 
+	/*
+	 * VARIABLES
+	 */
+
+	private DataLoaderInterface loader;
+
+	/*
+	 * CONSTRUCTORS
+	 */
+
+	public TaxController() {}
+
+	/*
+	 * METHODS
+	 */
+
+	public DataLoaderInterface getLoader() {
+
+		return loader;
+	}
+
+	public void setLoader(DataLoaderInterface loader) {
+
+		this.loader = loader;
+	}
+
 	/**
 	 * This method add a Tax to the TaxableItem's final price
 	 *
 	 * @param taxableItem	TaxableItem to correct with tax
 	 */
-	public static void addTax(TaxableItem taxableItem) {
+	public void addTax(TaxableItem taxableItem) {
 
 		Tax tax = getTaxType(getTaxFromResources(), taxableItem);
 
@@ -32,7 +58,7 @@ public class TaxController {
 	 *
 	 * @param item			TaxableItem to correct with tax
 	 */
-	public static void addImportTax(Item item) {
+	public void addImportTax(Item item) {
 
 		Tax tax = getTaxType(getTaxFromResources(), item);
 
@@ -49,7 +75,7 @@ public class TaxController {
 	 *
 	 * @return		rounded tax
 	 */
-	private static BigDecimal roundingTax(BigDecimal tax) {
+	private BigDecimal roundingTax(BigDecimal tax) {
 
 		if (tax != null && ! BigDecimal.ZERO.equals(tax)) {
 
@@ -72,7 +98,7 @@ public class TaxController {
 	 * @param taxes			tax to add
 	 * @param item			TaxableItem to correct with tax
 	 */
-	private static void addTaxToItem(int taxes, Item item) {
+	private void addTaxToItem(int taxes, Item item) {
 
 		if (taxes != 0 && item != null) {
 
@@ -85,15 +111,13 @@ public class TaxController {
 	}
 
 
-	private static List<Tax> getTaxFromResources() {
+	private List<Tax> getTaxFromResources() {
 
-		CSVDataLoader loader = new CSVDataLoader();
-
-		return loader.loadTaxes();
+		return this.loader.loadTaxes();
 	}
 
 
-	private static Tax getTaxType(List<Tax> taxList, Item item) {
+	private Tax getTaxType(List<Tax> taxList, Item item) {
 
 		Tax tax = null;
 

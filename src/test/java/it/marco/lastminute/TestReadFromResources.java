@@ -24,7 +24,7 @@ public class TestReadFromResources {
 	 * DONE - read Tax in TaxController
 	 * DONE - set possible tax foreach item into resource
 	 * DONE - change int to Integer to manage NULL values in Tax
-	 * - generalize loader in TaxController
+	 * DONE - generalize loader in TaxController
 	 */
 
 	@Test
