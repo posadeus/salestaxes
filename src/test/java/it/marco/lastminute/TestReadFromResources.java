@@ -1,10 +1,11 @@
 package it.marco.lastminute;
 
-import it.marco.lastminute.dto.Tax;
+import it.marco.lastminute.dto.*;
 import it.marco.lastminute.loader.CSVDataLoader;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -66,5 +67,28 @@ public class TestReadFromResources {
 		assertEquals("perfume", tax.getItem());
 		assertEquals(Integer.valueOf(10), tax.getBaseTax());
 		assertEquals(Integer.valueOf(5), tax.getImportTax());
+	}
+
+	/*
+	 * TODO
+	 * - methods
+	 * - constant for ","
+	 */
+
+	@Test
+	@DisplayName("Test Read Books from Resources")
+	public void testReadBooksFromResources() {
+
+		CSVDataLoader loader = new CSVDataLoader();
+
+		List<Book> bookList = loader.loadBooks();
+
+		assertEquals(1, bookList.size());
+
+		Book book = bookList.get(0);
+
+		assertEquals(BigDecimal.valueOf(12.49), book.getAmount());
+		assertEquals(Boolean.FALSE, book.getImported());
+		assertEquals(Boolean.FALSE, book.getTaxable());
 	}
 }
