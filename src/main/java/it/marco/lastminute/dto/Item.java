@@ -62,4 +62,9 @@ public abstract class Item {
 
 		return isTaxable;
 	}
+
+	public Boolean getImported() {
+
+		return isImported;
+	}
 }

@@ -1,11 +1,16 @@
 package it.marco.lastminute.loader;
 
+import it.marco.lastminute.constants.Constants;
+import it.marco.lastminute.dao.BookDao;
+import it.marco.lastminute.dto.Book;
+import it.marco.lastminute.dto.Item;
 import it.marco.lastminute.dto.Tax;
 import it.marco.lastminute.utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +46,7 @@ public class CSVDataLoader implements DataLoaderInterface {
 
 				while ((line = br.readLine()) != null) {
 
-					String[] values = line.split(",");
+					String[] values = line.split(Constants.CSV_COMMA_DELIMITER);
 
 					if (results == null) {
 
@@ -71,6 +76,56 @@ public class CSVDataLoader implements DataLoaderInterface {
 					}
 
 					results.add(tax);
+				}
+			}
+		}
+		catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+		try {
+
+			br.close();
+		}
+		catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+		return results;
+	}
+
+	public List<BookDao> loadBooks() {
+
+		List<BookDao> results = null;
+
+		ClassLoader classLoader = CSVDataLoader.class.getClassLoader();
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(classLoader.getResourceAsStream("book.csv")));
+
+		String line;
+
+		try {
+
+			// Skip header row
+			if ((line = br.readLine()) != null) {
+
+				while ((line = br.readLine()) != null) {
+
+					String[] values = line.split(Constants.CSV_COMMA_DELIMITER);
+
+					if (results == null) {
+
+						results = new ArrayList<BookDao>();
+					}
+
+					// Parse row
+					BookDao bookDao = new BookDao();
+					bookDao.setAmount(new BigDecimal(values[0]));
+					bookDao.setImported(Boolean.valueOf(values[1]));
+
+					results.add(bookDao);
 				}
 			}
 		}

@@ -71,8 +71,12 @@ public class TestReadFromResources {
 
 	/*
 	 * TODO
-	 * - methods
-	 * - constant for ","
+	 * DONE - methods
+	 * DONE - constant for ","
+	 * DONE - create DAO for Book
+	 * DONE - parse BookDao
+	 * - create converter from BookDao to Book
+	 * - remove duplications
 	 */
 
 	@Test
