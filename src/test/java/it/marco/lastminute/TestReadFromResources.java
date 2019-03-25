@@ -34,7 +34,7 @@ public class TestReadFromResources {
 
 		CSVDataLoader loader = new CSVDataLoader();
 
-		List<Tax> taxList = loader.loadTaxes();
+		List<Tax> taxList = loader.loadData();
 
 		assertEquals(5, taxList.size());
 
@@ -76,7 +76,8 @@ public class TestReadFromResources {
 	 * DONE - create DAO for Book
 	 * DONE - parse BookDao
 	 * DONE - create converter from BookDao to Book
-	 * - create TaxDao
+	 * DONE - create TaxDao
+	 * DONE - add method to converter for taxes
 	 * - remove duplications
 	 */
 
@@ -86,7 +87,7 @@ public class TestReadFromResources {
 
 		CSVDataLoader loader = new CSVDataLoader();
 
-		List<Book> bookList = loader.loadBooks();
+		List<Book> bookList = loader.loadData();
 
 		assertEquals(1, bookList.size());
 
