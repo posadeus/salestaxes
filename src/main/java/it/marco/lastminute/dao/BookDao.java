@@ -2,7 +2,7 @@ package it.marco.lastminute.dao;
 
 import java.math.BigDecimal;
 
-public class BookDao {
+public class BookDao implements DaoInterface {
 
 	/*
 	 * VARIABLES

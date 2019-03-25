@@ -1,23 +1,15 @@
 package it.marco.lastminute.loader;
 
-import it.marco.lastminute.dto.Book;
-import it.marco.lastminute.dto.Tax;
-
 import java.util.List;
 
-public interface DataLoaderInterface {
+public interface DataLoaderInterface<T> {
 
 	/**
-	 * This method loads a List of Tax Object from the correct Resource
+	 * This method loads a List of T Object from the correct Resource
 	 *
-	 * @return		a List of Tax Object
-	 */
-	public List<Tax> loadTaxes();
-
-	/**
-	 * This method loads a List of Book Object from the correct Resource
+	 * @param fileName		name of the Resource to read
 	 *
-	 * @return		a List of Book Object
+	 * @return				a List of T Object
 	 */
-	public List<Book> loadBooks();
+	public List loadData(String fileName);
 }

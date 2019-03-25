@@ -1,6 +1,6 @@
 package it.marco.lastminute.dao;
 
-public class TaxDao {
+public class TaxDao implements DaoInterface {
 
 	/*
 	 * VARIABLES

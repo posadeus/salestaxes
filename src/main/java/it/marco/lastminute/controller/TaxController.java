@@ -117,7 +117,7 @@ public class TaxController {
 	 */
 	private List<Tax> getTaxFromResources() {
 
-		return this.loader.loadTaxes();
+		return this.loader.loadData("taxes.csv");
 	}
 
 	/**

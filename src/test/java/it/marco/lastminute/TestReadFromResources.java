@@ -1,7 +1,9 @@
 package it.marco.lastminute;
 
 import it.marco.lastminute.dto.*;
+import it.marco.lastminute.loader.BookLoader;
 import it.marco.lastminute.loader.CSVDataLoader;
+import it.marco.lastminute.loader.TaxLoader;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -32,9 +34,9 @@ public class TestReadFromResources {
 	@DisplayName("Test Read Taxes from Resources")
 	public void testReadTaxesFromResources() {
 
-		CSVDataLoader loader = new CSVDataLoader();
+		CSVDataLoader loader = new TaxLoader();
 
-		List<Tax> taxList = loader.loadData();
+		List<Tax> taxList = loader.loadData("taxes.csv");
 
 		assertEquals(5, taxList.size());
 
@@ -78,16 +80,17 @@ public class TestReadFromResources {
 	 * DONE - create converter from BookDao to Book
 	 * DONE - create TaxDao
 	 * DONE - add method to converter for taxes
-	 * - remove duplications
+	 * DONE - remove duplications
+	 * - add constants for Resources'name
 	 */
 
 	@Test
 	@DisplayName("Test Read Books from Resources")
 	public void testReadBooksFromResources() {
 
-		CSVDataLoader loader = new CSVDataLoader();
+		CSVDataLoader loader = new BookLoader();
 
-		List<Book> bookList = loader.loadData();
+		List<Book> bookList = loader.loadData("book.csv");
 
 		assertEquals(1, bookList.size());
 
