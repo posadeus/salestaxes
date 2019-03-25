@@ -110,13 +110,26 @@ public class TaxController {
 		}
 	}
 
-
+	/**
+	 * This method reads data from a Resource
+	 *
+	 * @return		a List of Tax Object
+	 */
 	private List<Tax> getTaxFromResources() {
 
 		return this.loader.loadTaxes();
 	}
 
-
+	/**
+	 * This method selects the taxes related to the Item passed.
+	 * The Item Object name must be equals (in lower case) to the name in the List.
+	 * If found, it returns the related Tax for the Item
+	 *
+	 * @param taxList		List of Tax element
+	 * @param item			the item to look for
+	 *
+	 * @return				the Tax related to the Item
+	 */
 	private Tax getTaxType(List<Tax> taxList, Item item) {
 
 		Tax tax = null;
