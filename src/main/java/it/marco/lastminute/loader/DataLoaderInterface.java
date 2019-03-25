@@ -1,6 +1,6 @@
 package it.marco.lastminute.loader;
 
-import it.marco.lastminute.dao.BookDao;
+import it.marco.lastminute.dto.Book;
 import it.marco.lastminute.dto.Tax;
 
 import java.util.List;
@@ -19,5 +19,5 @@ public interface DataLoaderInterface {
 	 *
 	 * @return		a List of Book Object
 	 */
-	public List<BookDao> loadBooks();
+	public List<Book> loadBooks();
 }

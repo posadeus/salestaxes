@@ -1,6 +1,7 @@
 package it.marco.lastminute.loader;
 
 import it.marco.lastminute.constants.Constants;
+import it.marco.lastminute.converter.ConvertFromDaoToItem;
 import it.marco.lastminute.dao.BookDao;
 import it.marco.lastminute.dto.Book;
 import it.marco.lastminute.dto.Item;
@@ -13,6 +14,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CSVDataLoader implements DataLoaderInterface {
 
@@ -96,9 +98,10 @@ public class CSVDataLoader implements DataLoaderInterface {
 		return results;
 	}
 
-	public List<BookDao> loadBooks() {
+	public List<Book> loadBooks() {
 
-		List<BookDao> results = null;
+		List<Book> results = null;
+		List<BookDao> bookDaoList = null;
 
 		ClassLoader classLoader = CSVDataLoader.class.getClassLoader();
 
@@ -115,9 +118,9 @@ public class CSVDataLoader implements DataLoaderInterface {
 
 					String[] values = line.split(Constants.CSV_COMMA_DELIMITER);
 
-					if (results == null) {
+					if (bookDaoList == null) {
 
-						results = new ArrayList<BookDao>();
+						bookDaoList = new ArrayList<BookDao>();
 					}
 
 					// Parse row
@@ -125,7 +128,7 @@ public class CSVDataLoader implements DataLoaderInterface {
 					bookDao.setAmount(new BigDecimal(values[0]));
 					bookDao.setImported(Boolean.valueOf(values[1]));
 
-					results.add(bookDao);
+					bookDaoList.add(bookDao);
 				}
 			}
 		}
@@ -141,6 +144,15 @@ public class CSVDataLoader implements DataLoaderInterface {
 		catch (IOException e) {
 
 			e.printStackTrace();
+		}
+
+		if (bookDaoList != null && ! bookDaoList.isEmpty()) {
+
+			results = new ArrayList<Book>();
+
+			results = bookDaoList.stream()
+					.map(ConvertFromDaoToItem::convertBookDaoInBook)
+					.collect(Collectors.toList());
 		}
 
 		return results;

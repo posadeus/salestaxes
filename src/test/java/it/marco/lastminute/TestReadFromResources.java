@@ -75,7 +75,8 @@ public class TestReadFromResources {
 	 * DONE - constant for ","
 	 * DONE - create DAO for Book
 	 * DONE - parse BookDao
-	 * - create converter from BookDao to Book
+	 * DONE - create converter from BookDao to Book
+	 * - create TaxDao
 	 * - remove duplications
 	 */
 
