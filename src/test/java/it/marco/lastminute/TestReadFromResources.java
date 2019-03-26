@@ -4,6 +4,7 @@ import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.dto.*;
 import it.marco.lastminute.loader.BookLoader;
 import it.marco.lastminute.loader.CSVDataLoader;
+import it.marco.lastminute.loader.MusicCDLoader;
 import it.marco.lastminute.loader.TaxLoader;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -104,8 +105,11 @@ public class TestReadFromResources {
 	/*
 	 * TODO
 	 * DONE - resource
-	 * - loader
-	 * - constant
+	 * DONE - loader
+	 * DONE - constant
+	 * - dao
+	 * - parser
+	 * - converter
 	 */
 
 	@Test
