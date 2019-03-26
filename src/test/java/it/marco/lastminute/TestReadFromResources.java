@@ -1,5 +1,6 @@
 package it.marco.lastminute;
 
+import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.dto.*;
 import it.marco.lastminute.loader.BookLoader;
 import it.marco.lastminute.loader.CSVDataLoader;
@@ -36,7 +37,7 @@ public class TestReadFromResources {
 
 		CSVDataLoader loader = new TaxLoader();
 
-		List<Tax> taxList = loader.loadData("taxes.csv");
+		List<Tax> taxList = loader.loadData(Constants.CSV_NAME_TAX);
 
 		assertEquals(5, taxList.size());
 
@@ -81,7 +82,7 @@ public class TestReadFromResources {
 	 * DONE - create TaxDao
 	 * DONE - add method to converter for taxes
 	 * DONE - remove duplications
-	 * - add constants for Resources'name
+	 * DONE - add constants for Resources'name
 	 */
 
 	@Test
@@ -90,7 +91,7 @@ public class TestReadFromResources {
 
 		CSVDataLoader loader = new BookLoader();
 
-		List<Book> bookList = loader.loadData("book.csv");
+		List<Book> bookList = loader.loadData(Constants.CSV_NAME_BOOK);
 
 		assertEquals(1, bookList.size());
 
@@ -98,6 +99,28 @@ public class TestReadFromResources {
 
 		assertEquals(BigDecimal.valueOf(12.49), book.getAmount());
 		assertEquals(Boolean.FALSE, book.getImported());
-		assertEquals(Boolean.FALSE, book.getTaxable());
+	}
+
+	/*
+	 * TODO
+	 * DONE - resource
+	 * - loader
+	 * - constant
+	 */
+
+	@Test
+	@DisplayName("Test Read MusicCDs from Resources")
+	public void testResadMusicCDsFromResources() {
+
+		CSVDataLoader loader = new MusicCDLoader();
+
+		List<MusicCD> musicCDList = loader.loadData(Constants.CSV_NAME_MUSIC_CD);
+
+		assertEquals(1, musicCDList.size());
+
+		MusicCD musicCD = musicCDList.get(0);
+
+		assertEquals(BigDecimal.valueOf(14.99), musicCD.getAmount());
+		assertEquals(Boolean.FALSE, musicCD.getImported());
 	}
 }
