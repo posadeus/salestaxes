@@ -1,5 +1,8 @@
 package it.marco.lastminute.loader;
 
+import it.marco.lastminute.converter.MusicCDConverter;
+import it.marco.lastminute.parser.MusicCDDaoParser;
+
 public class MusicCDLoader extends CSVDataLoader<MusicCDDaoParser> {
 
 	/*

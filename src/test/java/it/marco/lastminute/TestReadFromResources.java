@@ -107,9 +107,12 @@ public class TestReadFromResources {
 	 * DONE - resource
 	 * DONE - loader
 	 * DONE - constant
-	 * - dao
-	 * - parser
-	 * - converter
+	 * DONE - dao
+	 * DONE - parser
+	 * DONE - converter
+	 * - remove duplications in Daos
+	 * - remove duplications in Parsers
+	 * - remove duplications in Converter
 	 */
 
 	@Test
