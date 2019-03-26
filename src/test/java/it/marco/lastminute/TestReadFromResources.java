@@ -110,7 +110,7 @@ public class TestReadFromResources {
 	 * DONE - dao
 	 * DONE - parser
 	 * DONE - converter
-	 * - remove duplications in Daos
+	 * DONE - remove duplications in Daos
 	 * - remove duplications in Parsers
 	 * - remove duplications in Converter
 	 */

@@ -1,43 +1,13 @@
 package it.marco.lastminute.dao;
 
-import java.math.BigDecimal;
-
-public class BookDao implements DaoInterface {
-
-	/*
-	 * VARIABLES
-	 */
-
-	private BigDecimal amount;
-	private Boolean isImported;
+public class BookDao extends ItemDao {
 
 	/*
 	 * CONSTRUCTORS
 	 */
 
-	public BookDao() {}
+	public BookDao() {
 
-	/*
-	 * METHODS
-	 */
-
-	public BigDecimal getAmount() {
-
-		return amount;
-	}
-
-	public void setAmount(BigDecimal amount) {
-
-		this.amount = amount;
-	}
-
-	public Boolean getImported() {
-
-		return isImported;
-	}
-
-	public void setImported(Boolean imported) {
-
-		isImported = imported;
+		super();
 	}
 }
