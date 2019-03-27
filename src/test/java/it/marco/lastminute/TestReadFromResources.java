@@ -221,4 +221,26 @@ public class TestReadFromResources {
 		assertEquals(BigDecimal.valueOf(9.75), headachePills.getAmount());
 		assertEquals(Boolean.FALSE, headachePills.getImported());
 	}
+
+	/*
+	 * TODO
+	 * - empty resource
+	 * - loader
+	 * - constant
+	 * - dao
+	 * - parser
+	 * - converter
+	 * - dto (ExemptedItem)
+	 */
+
+	@Test
+	@DisplayName("Test Read Water from Resources")
+	public void testReadWaterFromResources() {
+
+		CSVDataLoader loader = new WaterLoader();
+
+		List<Water> waterList = loader.loadData(Constants.CSV_NAME_WATER);
+
+		assertEquals(null, waterList);
+	}
 }
