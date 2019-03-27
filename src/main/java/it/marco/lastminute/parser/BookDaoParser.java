@@ -19,4 +19,14 @@ public class BookDaoParser extends ItemDaoParser<BookDao> {
 		super();
 		super.setDao(new BookDao());
 	}
+
+	/*
+	 * METHODS
+	 */
+
+	@Override
+	protected BookDao setNewDao() {
+
+		return new BookDao();
+	}
 }

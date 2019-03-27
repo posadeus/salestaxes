@@ -40,6 +40,8 @@ public abstract class ItemDaoParser<T extends ItemDao> implements DataParserInte
 	 */
 	public T parse(String[] line) {
 
+		setDao(setNewDao());
+
 		try {
 
 			dao.setAmount(new BigDecimal(line[0]));
@@ -53,4 +55,7 @@ public abstract class ItemDaoParser<T extends ItemDao> implements DataParserInte
 
 		return dao;
 	}
+
+
+	protected abstract T setNewDao();
 }

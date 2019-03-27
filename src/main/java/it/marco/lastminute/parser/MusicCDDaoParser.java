@@ -19,4 +19,14 @@ public class MusicCDDaoParser extends ItemDaoParser<MusicCDDao> {
 		super();
 		super.setDao(new MusicCDDao());
 	}
+
+	/*
+	 * METHODS
+	 */
+
+	@Override
+	protected MusicCDDao setNewDao() {
+
+		return new MusicCDDao();
+	}
 }

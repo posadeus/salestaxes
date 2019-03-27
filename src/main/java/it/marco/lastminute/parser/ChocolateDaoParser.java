@@ -19,4 +19,14 @@ public class ChocolateDaoParser extends ItemDaoParser<ChocolateDao> {
 		super();
 		super.setDao(new ChocolateDao());
 	}
+
+	/*
+	 * METHODS
+	 */
+
+	@Override
+	protected ChocolateDao setNewDao() {
+
+		return new ChocolateDao();
+	}
 }

@@ -133,7 +133,7 @@ public class TestReadFromResources {
 	 * DONE - dao
 	 * DONE - parser
 	 * DONE - converter
-	 * - fix ItemDaoParser for new Dao init
+	 * DONE - fix ItemDaoParser for new Dao init
 	 */
 
 	@Test
@@ -153,7 +153,7 @@ public class TestReadFromResources {
 
 		chocolate = chocolateList.get(1);
 
-		assertEquals(BigDecimal.valueOf(10.00), chocolate.getAmount());
+		assertEquals(BigDecimal.valueOf(10.00).setScale(2), chocolate.getAmount());
 		assertEquals(Boolean.TRUE, chocolate.getImported());
 
 		chocolate = chocolateList.get(2);
