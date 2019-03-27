@@ -163,7 +163,6 @@ public class TestReadFromResources {
 	}
 
 	/*
-	 * TODO
 	 * DONE - resource
 	 * DONE - loader
 	 * DONE - constant
@@ -196,5 +195,31 @@ public class TestReadFromResources {
 
 		assertEquals(BigDecimal.valueOf(18.99), perfume.getAmount());
 		assertEquals(Boolean.FALSE, perfume.getImported());
+	}
+
+	/*
+	 * TODO
+	 * - resource
+	 * - loader
+	 * - constant
+	 * - dao
+	 * - parser
+	 * - converter
+	 */
+
+	@Test
+	@DisplayName("Test Read HeadachePills from Resources")
+	public void testReadHeadachePillsFromResources() {
+
+		CSVDataLoader loader = new HeadachePillsLoader();
+
+		List<HeadachePills> headachePillsList = loader.loadData(Constants.CSV_NAME_HEADACHE_PILLS);
+
+		assertEquals(1, headachePillsList.size());
+
+		HeadachePills headachePills = headachePillsList.get(0);
+
+		assertEquals(BigDecimal.valueOf(47.50), headachePills.getAmount());
+		assertEquals(Boolean.TRUE, headachePills.getImported());
 	}
 }
