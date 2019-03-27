@@ -60,7 +60,6 @@ public class TestReceipts {
 	}
 
 	/*
-	 * TODO
 	 * DONE - Classes Chocolate, Perfume
 	 * DONE - Constructors
 	 * DONE - addImportTax method

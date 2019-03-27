@@ -111,7 +111,7 @@ public class TestReadFromResources {
 
 	@Test
 	@DisplayName("Test Read MusicCDs from Resources")
-	public void testResadMusicCDsFromResources() {
+	public void testReadMusicCDsFromResources() {
 
 		CSVDataLoader loader = new MusicCDLoader();
 
@@ -126,7 +126,6 @@ public class TestReadFromResources {
 	}
 
 	/*
-	 * TODO
 	 * DONE - resource
 	 * DONE - loader
 	 * DONE - constant
@@ -161,5 +160,41 @@ public class TestReadFromResources {
 
 		assertEquals(BigDecimal.valueOf(11.25), chocolate.getAmount());
 		assertEquals(Boolean.TRUE, chocolate.getImported());
+	}
+
+	/*
+	 * TODO
+	 * - resource
+	 * - loader
+	 * - constant
+	 * - dao
+	 * - parser
+	 * - converter
+	 */
+
+	@Test
+	@DisplayName("Test Read Perfumes from Resources")
+	public void testReadPerfumesFromResources() {
+
+		CSVDataLoader loader = new PerfumeLoader();
+
+		List<Perfume> perfumeList = loader.loadData(Constants.CSV_NAME_PERFUME);
+
+		assertEquals(3, perfumeList.size());
+
+		Perfume perfume = perfumeList.get(0);
+
+		assertEquals(BigDecimal.valueOf(47.50), perfume.getAmount());
+		assertEquals(Boolean.TRUE, perfume.getImported());
+
+		perfume = perfumeList.get(1);
+
+		assertEquals(BigDecimal.valueOf(27.99), perfume.getAmount());
+		assertEquals(Boolean.TRUE, perfume.getImported());
+
+		perfume = perfumeList.get(2);
+
+		assertEquals(BigDecimal.valueOf(18.99), perfume.getAmount());
+		assertEquals(Boolean.FALSE, perfume.getImported());
 	}
 }
