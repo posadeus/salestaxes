@@ -18,6 +18,9 @@ public class TaxDaoParser implements DataParserInterface<TaxDao> {
 	 * METHODS
 	 */
 
+	/**
+	 * @see DataParserInterface
+	 */
 	public TaxDao parse(String[] line) {
 
 		TaxDao dao = new TaxDao();

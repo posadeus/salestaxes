@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public abstract class TaxableItem extends Item {
 
 	/*
-	 * VARIABLES
+	 * CONSTANTS
 	 */
 
 	protected static final Boolean isTaxable = Boolean.TRUE;

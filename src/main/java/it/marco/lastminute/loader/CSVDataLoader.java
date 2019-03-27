@@ -1,7 +1,7 @@
 package it.marco.lastminute.loader;
 
 import it.marco.lastminute.constants.Constants;
-import it.marco.lastminute.converter.ConverterFromDaoToItemInterface;
+import it.marco.lastminute.converter.ConverterInterface;
 import it.marco.lastminute.parser.DataParserInterface;
 
 import java.io.BufferedReader;
@@ -17,7 +17,7 @@ public abstract class CSVDataLoader<T extends DataParserInterface<?>> implements
 	 */
 
 	private T parser;
-	private ConverterFromDaoToItemInterface converter;
+	private ConverterInterface converter;
 
 	/*
 	 * CONSTRUCTORS
@@ -39,12 +39,12 @@ public abstract class CSVDataLoader<T extends DataParserInterface<?>> implements
 		this.parser = parser;
 	}
 
-	public ConverterFromDaoToItemInterface getConverter() {
+	public ConverterInterface getConverter() {
 
 		return converter;
 	}
 
-	public void setConverter(ConverterFromDaoToItemInterface converter) {
+	public void setConverter(ConverterInterface converter) {
 
 		this.converter = converter;
 	}

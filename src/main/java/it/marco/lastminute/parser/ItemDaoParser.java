@@ -35,6 +35,9 @@ public abstract class ItemDaoParser<T extends ItemDao> implements DataParserInte
 		this.dao = dao;
 	}
 
+	/**
+	 * @see DataParserInterface
+	 */
 	public T parse(String[] line) {
 
 		try {

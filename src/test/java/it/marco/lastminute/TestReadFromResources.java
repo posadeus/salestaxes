@@ -112,7 +112,7 @@ public class TestReadFromResources {
 	 * DONE - converter
 	 * DONE - remove duplications in Daos
 	 * DONE - remove duplications in Parsers
-	 * - remove duplications in Converter
+	 * DONE - remove duplications in Converter
 	 */
 
 	@Test

@@ -67,4 +67,9 @@ public abstract class Item {
 
 		return isImported;
 	}
+
+	public void setImported(Boolean imported) {
+
+		isImported = imported;
+	}
 }
