@@ -198,13 +198,12 @@ public class TestReadFromResources {
 	}
 
 	/*
-	 * TODO
-	 * - resource
-	 * - loader
-	 * - constant
-	 * - dao
-	 * - parser
-	 * - converter
+	 * DONE - resource
+	 * DONE - loader
+	 * DONE - constant
+	 * DONE - dao
+	 * DONE - parser
+	 * DONE - converter
 	 */
 
 	@Test
@@ -219,7 +218,7 @@ public class TestReadFromResources {
 
 		HeadachePills headachePills = headachePillsList.get(0);
 
-		assertEquals(BigDecimal.valueOf(47.50), headachePills.getAmount());
-		assertEquals(Boolean.TRUE, headachePills.getImported());
+		assertEquals(BigDecimal.valueOf(9.75), headachePills.getAmount());
+		assertEquals(Boolean.FALSE, headachePills.getImported());
 	}
 }
