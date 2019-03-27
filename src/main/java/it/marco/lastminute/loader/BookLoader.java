@@ -2,7 +2,6 @@ package it.marco.lastminute.loader;
 
 import it.marco.lastminute.converter.BookConverter;
 import it.marco.lastminute.parser.BookDaoParser;
-import it.marco.lastminute.parser.DataParserInterface;
 
 public class BookLoader extends CSVDataLoader<BookDaoParser> {
 

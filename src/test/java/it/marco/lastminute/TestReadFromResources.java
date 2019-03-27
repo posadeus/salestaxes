@@ -2,10 +2,7 @@ package it.marco.lastminute;
 
 import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.dto.*;
-import it.marco.lastminute.loader.BookLoader;
-import it.marco.lastminute.loader.CSVDataLoader;
-import it.marco.lastminute.loader.MusicCDLoader;
-import it.marco.lastminute.loader.TaxLoader;
+import it.marco.lastminute.loader.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestReadFromResources {
 
 	/*
-	 * TODO
 	 * DONE - classes Tax, CSVDataLoader
 	 * DONE - constructors
 	 * DONE - methods
@@ -74,7 +70,6 @@ public class TestReadFromResources {
 	}
 
 	/*
-	 * TODO
 	 * DONE - methods
 	 * DONE - constant for ","
 	 * DONE - create DAO for Book
@@ -103,7 +98,6 @@ public class TestReadFromResources {
 	}
 
 	/*
-	 * TODO
 	 * DONE - resource
 	 * DONE - loader
 	 * DONE - constant
@@ -133,12 +127,13 @@ public class TestReadFromResources {
 
 	/*
 	 * TODO
-	 * - resource
-	 * - loader
-	 * - constant
-	 * - dao
-	 * - parser
-	 * - converter
+	 * DONE - resource
+	 * DONE - loader
+	 * DONE - constant
+	 * DONE - dao
+	 * DONE - parser
+	 * DONE - converter
+	 * - fix ItemDaoParser for new Dao init
 	 */
 
 	@Test
@@ -149,7 +144,7 @@ public class TestReadFromResources {
 
 		List<Chocolate> chocolateList = loader.loadData(Constants.CSV_NAME_CHOCOLATE);
 
-		assertEquals(1, chocolateList.size());
+		assertEquals(3, chocolateList.size());
 
 		Chocolate chocolate = chocolateList.get(0);
 
