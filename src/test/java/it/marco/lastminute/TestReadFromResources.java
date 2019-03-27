@@ -130,4 +130,40 @@ public class TestReadFromResources {
 		assertEquals(BigDecimal.valueOf(14.99), musicCD.getAmount());
 		assertEquals(Boolean.FALSE, musicCD.getImported());
 	}
+
+	/*
+	 * TODO
+	 * - resource
+	 * - loader
+	 * - constant
+	 * - dao
+	 * - parser
+	 * - converter
+	 */
+
+	@Test
+	@DisplayName("Test Read Chocolates from Resources")
+	public void testResadChocolatesFromResources() {
+
+		CSVDataLoader loader = new ChocolateLoader();
+
+		List<Chocolate> chocolateList = loader.loadData(Constants.CSV_NAME_CHOCOLATE);
+
+		assertEquals(1, chocolateList.size());
+
+		Chocolate chocolate = chocolateList.get(0);
+
+		assertEquals(BigDecimal.valueOf(0.85), chocolate.getAmount());
+		assertEquals(Boolean.FALSE, chocolate.getImported());
+
+		chocolate = chocolateList.get(1);
+
+		assertEquals(BigDecimal.valueOf(10.00), chocolate.getAmount());
+		assertEquals(Boolean.TRUE, chocolate.getImported());
+
+		chocolate = chocolateList.get(2);
+
+		assertEquals(BigDecimal.valueOf(11.25), chocolate.getAmount());
+		assertEquals(Boolean.TRUE, chocolate.getImported());
+	}
 }
