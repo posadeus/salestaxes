@@ -17,7 +17,6 @@ public class ChocolateDaoParser extends ItemDaoParser<ChocolateDao> {
 	public ChocolateDaoParser() {
 
 		super();
-		super.setDao(new ChocolateDao());
 	}
 
 	/*

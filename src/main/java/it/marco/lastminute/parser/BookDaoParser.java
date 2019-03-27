@@ -17,7 +17,6 @@ public class BookDaoParser extends ItemDaoParser<BookDao> {
 	public BookDaoParser() {
 
 		super();
-		super.setDao(new BookDao());
 	}
 
 	/*

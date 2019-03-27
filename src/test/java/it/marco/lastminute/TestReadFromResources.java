@@ -134,11 +134,12 @@ public class TestReadFromResources {
 	 * DONE - parser
 	 * DONE - converter
 	 * DONE - fix ItemDaoParser for new Dao init
+	 * DONE - remove
 	 */
 
 	@Test
 	@DisplayName("Test Read Chocolates from Resources")
-	public void testResadChocolatesFromResources() {
+	public void testReadChocolatesFromResources() {
 
 		CSVDataLoader loader = new ChocolateLoader();
 

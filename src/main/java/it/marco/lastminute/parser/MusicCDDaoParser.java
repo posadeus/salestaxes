@@ -17,7 +17,6 @@ public class MusicCDDaoParser extends ItemDaoParser<MusicCDDao> {
 	public MusicCDDaoParser() {
 
 		super();
-		super.setDao(new MusicCDDao());
 	}
 
 	/*
