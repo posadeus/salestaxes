@@ -11,4 +11,5 @@ public class Constants {
 	public static final String CSV_NAME_BOOK = "book.csv";
 	public static final String CSV_NAME_MUSIC_CD = "musicCD.csv";
 	public static final String CSV_NAME_CHOCOLATE = "chocolate.csv";
+	public static final String CSV_NAME_PERFUME = "perfume.csv";
 }

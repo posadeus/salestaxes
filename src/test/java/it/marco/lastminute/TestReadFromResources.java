@@ -164,12 +164,12 @@ public class TestReadFromResources {
 
 	/*
 	 * TODO
-	 * - resource
-	 * - loader
-	 * - constant
-	 * - dao
-	 * - parser
-	 * - converter
+	 * DONE - resource
+	 * DONE - loader
+	 * DONE - constant
+	 * DONE - dao
+	 * DONE - parser
+	 * DONE - converter
 	 */
 
 	@Test
@@ -184,7 +184,7 @@ public class TestReadFromResources {
 
 		Perfume perfume = perfumeList.get(0);
 
-		assertEquals(BigDecimal.valueOf(47.50), perfume.getAmount());
+		assertEquals(BigDecimal.valueOf(47.50).setScale(2), perfume.getAmount());
 		assertEquals(Boolean.TRUE, perfume.getImported());
 
 		perfume = perfumeList.get(1);
