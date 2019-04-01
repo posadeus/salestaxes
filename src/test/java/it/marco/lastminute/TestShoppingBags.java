@@ -16,11 +16,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestShoppingBags {
 
 	/*
-	 * TODO
 	 * DONE - classes
 	 * DONE - constructors
 	 * DONE - methods
-	 * - read from Resources
+	 * DONE - read from Resources
 	 */
 
 	@Test
