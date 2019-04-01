@@ -242,4 +242,36 @@ public class TestReadFromResources {
 
 		assertEquals(Boolean.TRUE, waterList.isEmpty());
 	}
+
+
+	@Test
+	@DisplayName("Test Read All Items Once")
+	public void testReadAllItemsOnce() {
+
+		CSVDataLoader loader = new ItemLoader();
+
+		List<Item> itemList = loader.loadData(Constants.CSV_NAME_ITEMS);
+
+		assertEquals(9, itemList.size());
+
+		assertEquals("Book", itemList.get(0).getType());
+		assertEquals("Chocolate", itemList.get(2).getType());
+		assertEquals("Chocolate", itemList.get(3).getType());
+		assertEquals("Chocolate", itemList.get(4).getType());
+		assertEquals("Headache Pills", itemList.get(5).getType());
+		assertEquals("MusicCD", itemList.get(6).getType());
+		assertEquals("Perfume", itemList.get(7).getType());
+		assertEquals("Perfume", itemList.get(8).getType());
+		assertEquals("Perfume", itemList.get(9).getType());
+
+		assertEquals(BigDecimal.valueOf(12.49), itemList.get(0).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(0.85), itemList.get(2).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(10.50).setScale(2), itemList.get(3).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(11.85), itemList.get(4).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(9.75), itemList.get(5).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(16.49), itemList.get(6).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(54.65), itemList.get(7).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(32.19), itemList.get(8).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(20.89), itemList.get(9).getFinalPrice());
+	}
 }
