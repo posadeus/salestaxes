@@ -223,14 +223,13 @@ public class TestReadFromResources {
 	}
 
 	/*
-	 * TODO
-	 * - empty resource
-	 * - loader
-	 * - constant
-	 * - dao
-	 * - parser
-	 * - converter
-	 * - dto (ExemptedItem)
+	 * DONE - empty resource
+	 * DONE - loader
+	 * DONE - constant
+	 * DONE - dao
+	 * DONE - parser
+	 * DONE - converter
+	 * DONE - dto (ExemptedItem)
 	 */
 
 	@Test
@@ -241,6 +240,6 @@ public class TestReadFromResources {
 
 		List<Water> waterList = loader.loadData(Constants.CSV_NAME_WATER);
 
-		assertEquals(null, waterList);
+		assertEquals(Boolean.TRUE, waterList.isEmpty());
 	}
 }

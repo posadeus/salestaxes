@@ -1,6 +1,5 @@
 package it.marco.lastminute;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import it.marco.lastminute.dto.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -99,7 +98,6 @@ public class TestReceipts {
 	}
 
 	/*
-	 * TODO
 	 * DONE - Classes HeadachePills
 	 * DONE - fix rounding
 	 * DONE - print receipt
