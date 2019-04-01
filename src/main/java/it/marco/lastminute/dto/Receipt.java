@@ -1,5 +1,7 @@
 package it.marco.lastminute.dto;
 
+import it.marco.lastminute.controller.ShoppingBagController;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
@@ -22,13 +24,17 @@ public class Receipt {
 
 		this.itemList = Arrays.asList(items);
 
-		this.totalAmount = this.itemList.stream()				// Convert list to stream
-			.map(Item::getFinalPrice)							// Convert stream to BigDecimal
-			.reduce(BigDecimal.ZERO, BigDecimal::add);			// Sum values from 0
+		setAmounts();
+	}
 
-		this.totalTaxesAmount = this.itemList.stream()			// Convert list to stream
-			.map(Item::getAmount)								// Convert stream to BigDecimal
-			.reduce(this.totalAmount, BigDecimal::subtract);	// Subtract values from totalAmount
+	public Receipt(ShoppingBagController shoppingBag) {
+
+		if (shoppingBag != null && shoppingBag.getItemList() != null && ! shoppingBag.getItemList().isEmpty()) {
+
+			this.itemList = shoppingBag.getItemList();
+
+			setAmounts();
+		}
 	}
 
 	/*
@@ -89,5 +95,20 @@ public class Receipt {
 		str += "Total Amount of Taxes --> " + this.getTotalTaxesAmount();
 
 		return str;
+	}
+
+
+	private void setAmounts() {
+
+		if (itemList != null && ! itemList.isEmpty()) {
+
+			this.totalAmount = this.itemList.stream()					// Convert list to stream
+					.map(Item::getFinalPrice)							// Convert stream to BigDecimal
+					.reduce(BigDecimal.ZERO, BigDecimal::add);			// Sum values from 0
+
+			this.totalTaxesAmount = this.itemList.stream()				// Convert list to stream
+					.map(Item::getAmount)								// Convert stream to BigDecimal
+					.reduce(this.totalAmount, BigDecimal::subtract);	// Subtract values from totalAmount
+		}
 	}
 }
