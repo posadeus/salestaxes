@@ -2,12 +2,9 @@ package it.marco.lastminute.factory;
 
 import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.dto.*;
-import it.marco.lastminute.loader.BookLoader;
 import it.marco.lastminute.loader.CSVDataLoader;
-import it.marco.lastminute.loader.ChocolateLoader;
-import it.marco.lastminute.loader.MusicCDLoader;
+import it.marco.lastminute.loader.ItemLoader;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +14,11 @@ public class FirstShoppingBagFactory implements FactoryInterface {
 
 		List<ExemptedItem> exemptedItemList = new ArrayList<ExemptedItem>();
 
-		CSVDataLoader loader = new BookLoader();
-		List<Book> bookList = loader.loadData(Constants.CSV_NAME_BOOK);
+		CSVDataLoader loader = new ItemLoader();
+		List<Item> itemList = loader.loadData(Constants.CSV_NAME_ITEMS);
 
-		loader = new ChocolateLoader();
-		List<Chocolate> chocolateList = loader.loadData(Constants.CSV_NAME_CHOCOLATE);
-
-		exemptedItemList.add(bookList.get(0));
-		exemptedItemList.add(chocolateList.get(0));
+		exemptedItemList.add((ExemptedItem) itemList.get(0));
+		exemptedItemList.add((ExemptedItem) itemList.get(1));
 
 		return exemptedItemList;
 	}
@@ -33,10 +27,10 @@ public class FirstShoppingBagFactory implements FactoryInterface {
 
 		List<TaxableItem> taxableItemList = new ArrayList<TaxableItem>();
 
-		CSVDataLoader loader = new MusicCDLoader();
-		List<MusicCD> musicCDList = loader.loadData(Constants.CSV_NAME_MUSIC_CD);
+		CSVDataLoader loader = new ItemLoader();
+		List<Item> itemList = loader.loadData(Constants.CSV_NAME_ITEMS);
 
-		taxableItemList.add(musicCDList.get(0));
+		taxableItemList.add((TaxableItem) itemList.get(5));
 
 		return taxableItemList;
 	}

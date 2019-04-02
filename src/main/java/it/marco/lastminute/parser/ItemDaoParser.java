@@ -4,13 +4,13 @@ import it.marco.lastminute.dao.ItemDao;
 
 import java.math.BigDecimal;
 
-public abstract class ItemDaoParser<T extends ItemDao> implements DataParserInterface<T> {
+public class ItemDaoParser implements DataParserInterface<ItemDao> {
 
 	/*
 	 * VARIABLES
 	 */
 
-	protected T dao;
+	protected ItemDao dao;
 
 	/*
 	 * CONSTRUCTORS
@@ -25,12 +25,12 @@ public abstract class ItemDaoParser<T extends ItemDao> implements DataParserInte
 	 * METHODS
 	 */
 
-	public T getDao() {
+	public ItemDao getDao() {
 
 		return dao;
 	}
 
-	public void setDao(T dao) {
+	public void setDao(ItemDao dao) {
 
 		this.dao = dao;
 	}
@@ -38,24 +38,30 @@ public abstract class ItemDaoParser<T extends ItemDao> implements DataParserInte
 	/**
 	 * @see DataParserInterface
 	 */
-	public T parse(String[] line) {
+	public ItemDao parse(String[] line) {
 
 		setDao(setNewDao());
 
+		dao.setType(line[0]);
+
 		try {
 
-			dao.setAmount(new BigDecimal(line[0]));
+			dao.setAmount(new BigDecimal(line[1]));
 		}
 		catch (NumberFormatException e) {
 
 			dao.setAmount(null);
 		}
 
-		dao.setImported(Boolean.valueOf(line[1]));
+		dao.setImported(Boolean.valueOf(line[2]));
+		dao.setTaxable(Boolean.valueOf(line[3]));
 
 		return dao;
 	}
 
 
-	protected abstract T setNewDao();
+	private ItemDao setNewDao() {
+
+		return new ItemDao();
+	}
 }

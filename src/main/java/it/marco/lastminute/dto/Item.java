@@ -11,6 +11,7 @@ public abstract class Item {
 	 * VARIABLES
 	 */
 
+	protected String type;
 	protected BigDecimal amount;
 	protected BigDecimal finalPrice;
 	protected Boolean isTaxable;
@@ -20,8 +21,9 @@ public abstract class Item {
 	 * CONSTRUCTORS
 	 */
 
-	public Item(BigDecimal amount, Boolean isTaxable, Boolean isImported) {
+	public Item(String type, BigDecimal amount, Boolean isTaxable, Boolean isImported) {
 
+		this.type = type;
 		this.amount = amount;
 		this.finalPrice = amount;
 		this.isTaxable = isTaxable;
@@ -37,6 +39,16 @@ public abstract class Item {
 	/*
 	 * METHODS
 	 */
+
+	public String getType() {
+
+		return type;
+	}
+
+	public void setType(String type) {
+
+		this.type = type;
+	}
 
 	public BigDecimal getAmount() {
 

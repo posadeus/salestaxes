@@ -126,7 +126,7 @@ public class TestShoppingBags {
 		assertEquals(Boolean.TRUE, printedReceipt.contains("32.19"));
 		assertEquals(Boolean.TRUE, printedReceipt.contains("Perfume"));
 		assertEquals(Boolean.TRUE, printedReceipt.contains("20.89"));
-		assertEquals(Boolean.TRUE, printedReceipt.contains("HeadachePills"));
+		assertEquals(Boolean.TRUE, printedReceipt.contains("Headache Pills"));
 		assertEquals(Boolean.TRUE, printedReceipt.contains("9.75"));
 		assertEquals(Boolean.TRUE, printedReceipt.contains("Chocolate"));
 		assertEquals(Boolean.TRUE, printedReceipt.contains("11.85"));

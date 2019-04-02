@@ -1,5 +1,6 @@
 package it.marco.lastminute.controller;
 
+import it.marco.lastminute.constants.Constants;
 import it.marco.lastminute.dto.Item;
 import it.marco.lastminute.dto.Tax;
 import it.marco.lastminute.dto.TaxableItem;
@@ -117,7 +118,7 @@ public class TaxController {
 	 */
 	private List<Tax> getTaxFromResources() {
 
-		return this.loader.loadData("taxes.csv");
+		return this.loader.loadData(Constants.CSV_NAME_TAX);
 	}
 
 	/**
@@ -136,7 +137,7 @@ public class TaxController {
 
 		if (item != null && taxList != null && ! taxList.isEmpty()) {
 
-			String itemName = item.getClass().getSimpleName().toLowerCase();
+			String itemName = item.getType().toLowerCase();
 
 			try {
 

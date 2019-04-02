@@ -69,180 +69,136 @@ public class TestReadFromResources {
 		assertEquals(Integer.valueOf(5), tax.getImportTax());
 	}
 
-	/*
-	 * DONE - methods
-	 * DONE - constant for ","
-	 * DONE - create DAO for Book
-	 * DONE - parse BookDao
-	 * DONE - create converter from BookDao to Book
-	 * DONE - create TaxDao
-	 * DONE - add method to converter for taxes
-	 * DONE - remove duplications
-	 * DONE - add constants for Resources'name
-	 */
-
 	@Test
 	@DisplayName("Test Read Books from Resources")
 	public void testReadBooksFromResources() {
 
-		CSVDataLoader loader = new BookLoader();
+		CSVDataLoader loader = new ItemLoader();
 
-		List<Book> bookList = loader.loadData(Constants.CSV_NAME_BOOK);
+		List<Item> itemList = loader.loadData(Constants.CSV_NAME_ITEMS);
 
-		assertEquals(1, bookList.size());
+		Item item = itemList.get(0);
 
-		Book book = bookList.get(0);
-
-		assertEquals(BigDecimal.valueOf(12.49), book.getAmount());
-		assertEquals(Boolean.FALSE, book.getImported());
+		assertEquals("Book", item.getType());
+		assertEquals(BigDecimal.valueOf(12.49), item.getAmount());
+		assertEquals(Boolean.FALSE, item.getImported());
+		assertEquals(Boolean.FALSE, item.getTaxable());
 	}
-
-	/*
-	 * DONE - resource
-	 * DONE - loader
-	 * DONE - constant
-	 * DONE - dao
-	 * DONE - parser
-	 * DONE - converter
-	 * DONE - remove duplications in Daos
-	 * DONE - remove duplications in Parsers
-	 * DONE - remove duplications in Converter
-	 */
 
 	@Test
 	@DisplayName("Test Read MusicCDs from Resources")
 	public void testReadMusicCDsFromResources() {
 
-		CSVDataLoader loader = new MusicCDLoader();
+		CSVDataLoader loader = new ItemLoader();
 
-		List<MusicCD> musicCDList = loader.loadData(Constants.CSV_NAME_MUSIC_CD);
+		List<Item> itemList = loader.loadData(Constants.CSV_NAME_ITEMS);
 
-		assertEquals(1, musicCDList.size());
+		Item item = itemList.get(5);
 
-		MusicCD musicCD = musicCDList.get(0);
-
-		assertEquals(BigDecimal.valueOf(14.99), musicCD.getAmount());
-		assertEquals(Boolean.FALSE, musicCD.getImported());
+		assertEquals("MusicCD", item.getType());
+		assertEquals(BigDecimal.valueOf(14.99), item.getAmount());
+		assertEquals(Boolean.FALSE, item.getImported());
+		assertEquals(Boolean.TRUE, item.getTaxable());
 	}
-
-	/*
-	 * DONE - resource
-	 * DONE - loader
-	 * DONE - constant
-	 * DONE - dao
-	 * DONE - parser
-	 * DONE - converter
-	 * DONE - fix ItemDaoParser for new Dao init
-	 * DONE - remove
-	 */
 
 	@Test
 	@DisplayName("Test Read Chocolates from Resources")
 	public void testReadChocolatesFromResources() {
 
-		CSVDataLoader loader = new ChocolateLoader();
+		CSVDataLoader loader = new ItemLoader();
 
-		List<Chocolate> chocolateList = loader.loadData(Constants.CSV_NAME_CHOCOLATE);
+		List<Item> itemList = loader.loadData(Constants.CSV_NAME_ITEMS);
 
-		assertEquals(3, chocolateList.size());
+		Item item = itemList.get(1);
 
-		Chocolate chocolate = chocolateList.get(0);
+		assertEquals("Chocolate", item.getType());
+		assertEquals(BigDecimal.valueOf(0.85), item.getAmount());
+		assertEquals(Boolean.FALSE, item.getImported());
+		assertEquals(Boolean.FALSE, item.getTaxable());
 
-		assertEquals(BigDecimal.valueOf(0.85), chocolate.getAmount());
-		assertEquals(Boolean.FALSE, chocolate.getImported());
+		item = itemList.get(2);
 
-		chocolate = chocolateList.get(1);
+		assertEquals("Chocolate", item.getType());
+		assertEquals(BigDecimal.valueOf(10.00).setScale(2), item.getAmount());
+		assertEquals(Boolean.TRUE, item.getImported());
+		assertEquals(Boolean.FALSE, item.getTaxable());
 
-		assertEquals(BigDecimal.valueOf(10.00).setScale(2), chocolate.getAmount());
-		assertEquals(Boolean.TRUE, chocolate.getImported());
+		item = itemList.get(3);
 
-		chocolate = chocolateList.get(2);
-
-		assertEquals(BigDecimal.valueOf(11.25), chocolate.getAmount());
-		assertEquals(Boolean.TRUE, chocolate.getImported());
+		assertEquals("Chocolate", item.getType());
+		assertEquals(BigDecimal.valueOf(11.25), item.getAmount());
+		assertEquals(Boolean.TRUE, item.getImported());
+		assertEquals(Boolean.FALSE, item.getTaxable());
 	}
-
-	/*
-	 * DONE - resource
-	 * DONE - loader
-	 * DONE - constant
-	 * DONE - dao
-	 * DONE - parser
-	 * DONE - converter
-	 */
 
 	@Test
 	@DisplayName("Test Read Perfumes from Resources")
 	public void testReadPerfumesFromResources() {
 
-		CSVDataLoader loader = new PerfumeLoader();
+		CSVDataLoader loader = new ItemLoader();
 
-		List<Perfume> perfumeList = loader.loadData(Constants.CSV_NAME_PERFUME);
+		List<Item> itemList = loader.loadData(Constants.CSV_NAME_ITEMS);
 
-		assertEquals(3, perfumeList.size());
+		Item item = itemList.get(6);
 
-		Perfume perfume = perfumeList.get(0);
+		assertEquals("Perfume", item.getType());
+		assertEquals(BigDecimal.valueOf(47.50).setScale(2), item.getAmount());
+		assertEquals(Boolean.TRUE, item.getImported());
+		assertEquals(Boolean.TRUE, item.getTaxable());
 
-		assertEquals(BigDecimal.valueOf(47.50).setScale(2), perfume.getAmount());
-		assertEquals(Boolean.TRUE, perfume.getImported());
+		item = itemList.get(7);
 
-		perfume = perfumeList.get(1);
+		assertEquals("Perfume", item.getType());
+		assertEquals(BigDecimal.valueOf(27.99), item.getAmount());
+		assertEquals(Boolean.TRUE, item.getImported());
+		assertEquals(Boolean.TRUE, item.getTaxable());
 
-		assertEquals(BigDecimal.valueOf(27.99), perfume.getAmount());
-		assertEquals(Boolean.TRUE, perfume.getImported());
+		item = itemList.get(8);
 
-		perfume = perfumeList.get(2);
-
-		assertEquals(BigDecimal.valueOf(18.99), perfume.getAmount());
-		assertEquals(Boolean.FALSE, perfume.getImported());
+		assertEquals("Perfume", item.getType());
+		assertEquals(BigDecimal.valueOf(18.99), item.getAmount());
+		assertEquals(Boolean.FALSE, item.getImported());
+		assertEquals(Boolean.TRUE, item.getTaxable());
 	}
-
-	/*
-	 * DONE - resource
-	 * DONE - loader
-	 * DONE - constant
-	 * DONE - dao
-	 * DONE - parser
-	 * DONE - converter
-	 */
 
 	@Test
 	@DisplayName("Test Read HeadachePills from Resources")
 	public void testReadHeadachePillsFromResources() {
 
-		CSVDataLoader loader = new HeadachePillsLoader();
+		CSVDataLoader loader = new ItemLoader();
 
-		List<HeadachePills> headachePillsList = loader.loadData(Constants.CSV_NAME_HEADACHE_PILLS);
+		List<Item> itemList = loader.loadData(Constants.CSV_NAME_ITEMS);
 
-		assertEquals(1, headachePillsList.size());
+		Item item = itemList.get(4);
 
-		HeadachePills headachePills = headachePillsList.get(0);
-
-		assertEquals(BigDecimal.valueOf(9.75), headachePills.getAmount());
-		assertEquals(Boolean.FALSE, headachePills.getImported());
+		assertEquals("Headache Pills", item.getType());
+		assertEquals(BigDecimal.valueOf(9.75), item.getAmount());
+		assertEquals(Boolean.FALSE, item.getImported());
+		assertEquals(Boolean.FALSE, item.getTaxable());
 	}
-
-	/*
-	 * DONE - empty resource
-	 * DONE - loader
-	 * DONE - constant
-	 * DONE - dao
-	 * DONE - parser
-	 * DONE - converter
-	 * DONE - dto (ExemptedItem)
-	 */
 
 	@Test
 	@DisplayName("Test Read Water from Resources")
 	public void testReadWaterFromResources() {
 
-		CSVDataLoader loader = new WaterLoader();
+		CSVDataLoader loader = new ItemLoader();
 
-		List<Water> waterList = loader.loadData(Constants.CSV_NAME_WATER);
+		List<Item> itemList = loader.loadData(Constants.CSV_NAME_ITEMS);
 
-		assertEquals(Boolean.TRUE, waterList.isEmpty());
+		for (Item item : itemList) {
+
+			assertEquals(Boolean.TRUE, item.getType() != "Water");
+		}
 	}
 
+	/*
+	 * - class ItemLoader
+	 * - resource
+	 * - constant
+	 * - Item's variable for type
+	 * - refactoring classes
+	 * - refactoring test classes
+	 */
 
 	@Test
 	@DisplayName("Test Read All Items Once")
@@ -255,23 +211,23 @@ public class TestReadFromResources {
 		assertEquals(9, itemList.size());
 
 		assertEquals("Book", itemList.get(0).getType());
+		assertEquals("Chocolate", itemList.get(1).getType());
 		assertEquals("Chocolate", itemList.get(2).getType());
 		assertEquals("Chocolate", itemList.get(3).getType());
-		assertEquals("Chocolate", itemList.get(4).getType());
-		assertEquals("Headache Pills", itemList.get(5).getType());
-		assertEquals("MusicCD", itemList.get(6).getType());
+		assertEquals("Headache Pills", itemList.get(4).getType());
+		assertEquals("MusicCD", itemList.get(5).getType());
+		assertEquals("Perfume", itemList.get(6).getType());
 		assertEquals("Perfume", itemList.get(7).getType());
 		assertEquals("Perfume", itemList.get(8).getType());
-		assertEquals("Perfume", itemList.get(9).getType());
 
 		assertEquals(BigDecimal.valueOf(12.49), itemList.get(0).getFinalPrice());
-		assertEquals(BigDecimal.valueOf(0.85), itemList.get(2).getFinalPrice());
-		assertEquals(BigDecimal.valueOf(10.50).setScale(2), itemList.get(3).getFinalPrice());
-		assertEquals(BigDecimal.valueOf(11.85), itemList.get(4).getFinalPrice());
-		assertEquals(BigDecimal.valueOf(9.75), itemList.get(5).getFinalPrice());
-		assertEquals(BigDecimal.valueOf(16.49), itemList.get(6).getFinalPrice());
-		assertEquals(BigDecimal.valueOf(54.65), itemList.get(7).getFinalPrice());
-		assertEquals(BigDecimal.valueOf(32.19), itemList.get(8).getFinalPrice());
-		assertEquals(BigDecimal.valueOf(20.89), itemList.get(9).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(0.85), itemList.get(1).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(10.50).setScale(2), itemList.get(2).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(11.85), itemList.get(3).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(9.75), itemList.get(4).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(16.49), itemList.get(5).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(54.65), itemList.get(6).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(32.19), itemList.get(7).getFinalPrice());
+		assertEquals(BigDecimal.valueOf(20.89), itemList.get(8).getFinalPrice());
 	}
 }

@@ -2,7 +2,7 @@ package it.marco.lastminute.dto;
 
 import java.math.BigDecimal;
 
-public abstract class ExemptedItem extends Item {
+public class ExemptedItem extends Item {
 
 	/*
 	 * CONSTANTS
@@ -14,8 +14,8 @@ public abstract class ExemptedItem extends Item {
 	 * CONSTRUCTORS
 	 */
 
-	public ExemptedItem(BigDecimal amount, Boolean isImported) {
+	public ExemptedItem(String type, BigDecimal amount, Boolean isImported) {
 
-		super(amount, isTaxable, isImported);
+		super(type, amount, isTaxable, isImported);
 	}
 }

@@ -83,7 +83,7 @@ public class Receipt {
 
 		for (Item item : itemList) {
 
-			str += item.getClass().getSimpleName();
+			str += item.getType();
 			str += " --> ";
 			str += item.getFinalPrice();
 			str += "\n";

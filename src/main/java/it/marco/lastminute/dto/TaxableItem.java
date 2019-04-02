@@ -5,7 +5,7 @@ import it.marco.lastminute.factory.DataLoaderFactory;
 
 import java.math.BigDecimal;
 
-public abstract class TaxableItem extends Item {
+public class TaxableItem extends Item {
 
 	/*
 	 * CONSTANTS
@@ -17,9 +17,9 @@ public abstract class TaxableItem extends Item {
 	 * CONSTRUCTORS
 	 */
 
-	public TaxableItem(BigDecimal amount, Boolean isImported) {
+	public TaxableItem(String type, BigDecimal amount, Boolean isImported) {
 
-		super(amount, isTaxable, isImported);
+		super(type, amount, isTaxable, isImported);
 
 		TaxController taxController = DataLoaderFactory.setCSVDataLoader();
 		taxController.addTax(this);
