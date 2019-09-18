@@ -8,17 +8,17 @@ public class PriceCalculator
     {
       if (item.isTaxable())
       {
-        return 115.5;
+        return item.getPrice() + (item.getPrice() / 20) + (item.getPrice() + (item.getPrice() / 20)) / 10;
       }
 
-      return 105.0;
+      return item.getPrice() + (item.getPrice() / 20);
     }
 
-    if ("A_TAXABLE_ITEM".equals(item.getItemType()))
+    if (item.isTaxable())
     {
-      return 110;
+      return item.getPrice() + (item.getPrice() / 10);
     }
 
-    return 100;
+    return item.getPrice();
   }
 }
