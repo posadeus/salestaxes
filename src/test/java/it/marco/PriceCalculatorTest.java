@@ -1,6 +1,7 @@
 package it.marco;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
 
@@ -8,24 +9,21 @@ public class PriceCalculatorTest
 {
   private PriceCalculator priceCalculator;
 
-  @Before
-  public void setUp() throws Exception
-  {
-    priceCalculator = new PriceCalculator();
-  }
-
   @Test
   public void taxableItemTest()
   {
-    Assert.assertThat(priceCalculator.priceOf(new Item(true,
-                                                       false,
-                                                       100)),
+    priceCalculator = new TaxablePriceCalculator();
+
+    Assert.assertThat(priceCalculator.priceOf(new TaxableItem(false,
+                                                              100)),
                       is(110.0));
   }
 
   @Test
   public void notTaxableItemTest()
   {
+    priceCalculator = new DefaultPriceCalculator();
+
     Assert.assertThat(priceCalculator.priceOf(new Item(false,
                                                        false,
                                                        100)),
@@ -35,15 +33,18 @@ public class PriceCalculatorTest
   @Test
   public void importableAndTaxableItemTest()
   {
-    Assert.assertThat(priceCalculator.priceOf(new Item(true,
-                                                       true,
-                                                       100)),
+    priceCalculator = new TaxablePriceCalculator();
+
+    Assert.assertThat(priceCalculator.priceOf(new TaxableItem(true,
+                                                              100)),
                       is(115.0));
   }
 
   @Test
   public void importableAndNotTaxableItemTest()
   {
+    priceCalculator = new DefaultPriceCalculator();
+
     Assert.assertThat(priceCalculator.priceOf(new Item(false,
                                                        true,
                                                        100)),

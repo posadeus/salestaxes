@@ -13,6 +13,12 @@ public class Item
     this.price = price;
   }
 
+  public Item(boolean isImported, int price)
+  {
+    this.isImported = isImported;
+    this.price = price;
+  }
+
   public boolean isTaxable()
   {
     return isTaxable;
