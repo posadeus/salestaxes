@@ -4,7 +4,7 @@ import org.junit.*;
 
 import static org.hamcrest.Matchers.is;
 
-public class ItemTest
+public class PriceCalculatorTest
 {
   private PriceCalculator priceCalculator;
 
@@ -15,8 +15,14 @@ public class ItemTest
   }
 
   @Test
-  public void taxableGoodTest()
+  public void taxableItemTest()
   {
     Assert.assertThat(priceCalculator.priceOf(new Item("A_TAXABLE_ITEM", 100)), is(110));
+  }
+
+  @Test
+  public void notTaxableItemTest()
+  {
+    Assert.assertThat(priceCalculator.priceOf(new Item("A_NOT_TAXABLE_ITEM", 100)), is(100));
   }
 }
