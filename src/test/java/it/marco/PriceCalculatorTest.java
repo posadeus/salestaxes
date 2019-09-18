@@ -25,7 +25,6 @@ public class PriceCalculatorTest
     priceCalculator = new DefaultPriceCalculator();
 
     Assert.assertThat(priceCalculator.priceOf(new Item(false,
-                                                       false,
                                                        100)),
                       is(100.0));
   }
@@ -45,8 +44,7 @@ public class PriceCalculatorTest
   {
     priceCalculator = new DefaultPriceCalculator();
 
-    Assert.assertThat(priceCalculator.priceOf(new Item(false,
-                                                       true,
+    Assert.assertThat(priceCalculator.priceOf(new Item(true,
                                                        100)),
                       is(105.0));
   }
