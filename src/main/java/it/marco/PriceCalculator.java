@@ -2,7 +2,7 @@ package it.marco;
 
 public class PriceCalculator
 {
-  public int priceOf(Good good)
+  public int priceOf(Item good)
   {
     return 110;
   }
