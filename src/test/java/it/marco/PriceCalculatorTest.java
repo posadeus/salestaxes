@@ -17,12 +17,25 @@ public class PriceCalculatorTest
   @Test
   public void taxableItemTest()
   {
-    Assert.assertThat(priceCalculator.priceOf(new Item("A_TAXABLE_ITEM", 100)), is(110));
+    Assert.assertThat(priceCalculator.priceOf(new Item("A_TAXABLE_ITEM",
+                                                       100)),
+                      is(110.0));
   }
 
   @Test
   public void notTaxableItemTest()
   {
-    Assert.assertThat(priceCalculator.priceOf(new Item("A_NOT_TAXABLE_ITEM", 100)), is(100));
+    Assert.assertThat(priceCalculator.priceOf(new Item("A_NOT_TAXABLE_ITEM",
+                                                       100)),
+                      is(100.0));
+  }
+
+  @Test
+  public void importableAndTaxableItemTest()
+  {
+    Assert.assertThat(priceCalculator.priceOf(new Item(true,
+                                                       true,
+                                                       100)),
+                      is(115.5));
   }
 }
