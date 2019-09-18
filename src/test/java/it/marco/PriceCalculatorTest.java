@@ -38,4 +38,13 @@ public class PriceCalculatorTest
                                                        100)),
                       is(115.5));
   }
+
+  @Test
+  public void importableAndNotTaxableItemTest()
+  {
+    Assert.assertThat(priceCalculator.priceOf(new Item(false,
+                                                       true,
+                                                       100)),
+                      is(105.0));
+  }
 }

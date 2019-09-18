@@ -6,11 +6,12 @@ public class PriceCalculator
   {
     if (item.isImported())
     {
-
       if (item.isTaxable())
       {
         return 115.5;
       }
+
+      return 105.0;
     }
 
     if ("A_TAXABLE_ITEM".equals(item.getItemType()))
