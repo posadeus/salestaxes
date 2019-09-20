@@ -4,11 +4,23 @@ public class DefaultPriceCalculator implements PriceCalculator
 {
   public double priceOf(Item item)
   {
+    double itemPrice = 0;
+
     if (item.isImported())
     {
-      return item.getPrice() + (item.getPrice() / 20);
+      itemPrice = item.getPrice() + (item.getPrice() / 20);
+    }
+    else
+    {
+
+      itemPrice = item.getPrice();
     }
 
-    return item.getPrice();
+    if (item.isTaxable())
+    {
+      itemPrice += itemPrice / 10;
+    }
+
+    return itemPrice;
   }
 }
