@@ -1,8 +1,10 @@
 package it.marco;
 
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 public class ReceiptCalculatorTest
 {
@@ -17,12 +19,12 @@ public class ReceiptCalculatorTest
   @Test
   public void totalCostForTest()
   {
-    Assert.assertThat(new ReceiptCalculator(priceCalculator).totalCostFor(new Item(true,
-                                                                                   false,
-                                                                                   10),
-                                                                          new Item(false,
+    assertThat(new ReceiptCalculator(priceCalculator).totalCostFor(new Item(true,
+                                                                            false,
+                                                                            10),
+                                                                   new Item(false,
                                                                                    false,
                                                                                    10)),
-                      is(21.0));
+               is(21.0));
   }
 }
